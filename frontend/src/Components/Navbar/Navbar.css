@@ -65,6 +65,7 @@
 .nav-login-cart button {
     width: 100px;
     height: 40px;
+    margin: 0px;
     outline: none;
     border: 2px solid #dadada;
     border-radius: 15px;
