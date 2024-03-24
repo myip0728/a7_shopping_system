@@ -6,8 +6,8 @@ import { useState } from "react";
 
 
 export const Signup = () => {
-    const [visible1, setVisible1] = useState(false);
-    const [visible2, setVisible2] = useState(false);
+    const [visible1, setVisible1] = useState(false); //Password 1 visibility
+    const [visible2, setVisible2] = useState(false); //Password 2 visibility
 
     return (
         <div className='loginsignup'>

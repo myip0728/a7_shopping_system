@@ -5,6 +5,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons"
 import { useState } from "react";
 
 export const Login = () => {
+    //Testing whether the user wants the password to be visible
     const [visible, setVisible] = useState(false);
 
     return (

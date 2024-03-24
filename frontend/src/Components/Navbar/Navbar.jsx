@@ -4,11 +4,25 @@ import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import userprofile_icon from '../Assets/userprofile.png'
 import search_icon from '../Assets/search.png'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Navbar = () => {
-
+    const location = useLocation();
     const [menu, setmenu] = useState("home");
+
+    React.useEffect(() => {
+        if (location.pathname.includes('/headphone')) {
+            setmenu("headphone");
+        } else if (location.pathname.includes('/laptop')) {
+            setmenu("laptop");
+        } else if (location.pathname.includes('/mouse')) {
+            setmenu("mouse");
+        } else if (location.pathname.includes('/keyboard')) {
+            setmenu("keyboard");
+        } else {
+            setmenu("home");
+        }
+    }, [location]);
 
     return (
         <div className='navbar'>
@@ -18,10 +32,10 @@ export const Navbar = () => {
                     <p onClick={() => setmenu("home")}> <Link style={{ textDecoration: 'none' }} to='/'>TechShop</Link> </p>
                 </div>
                 <ul className="nav-menu">
-                    <li onClick={() => setmenu("headphone")}><Link style={{ textDecoration: 'none' }} to='/headphone'>Headphone</Link>{menu === "headphone" ? <hr /> : <></>}</li>
-                    <li onClick={() => setmenu("laptop")}><Link style={{ textDecoration: 'none' }} to='/laptop'>Laptop</Link>{menu === "laptop" ? <hr /> : <></>}</li>
-                    <li onClick={() => setmenu("mouse")}><Link style={{ textDecoration: 'none' }} to='/mouse'>Mouse</Link>{menu === "mouse" ? <hr /> : <></>}</li>
-                    <li onClick={() => setmenu("keyboard")}><Link style={{ textDecoration: 'none' }} to='/keyboard'>Keyboard</Link>{menu === "keyboard" ? <hr /> : <></>}</li>
+                    <li onClick={() => setmenu("headphone")}><Link to='/headphone'>Headphone</Link>{menu === "headphone" ? <hr /> : <></>}</li>
+                    <li onClick={() => setmenu("laptop")}><Link to='/laptop'>Laptop</Link>{menu === "laptop" ? <hr /> : <></>}</li>
+                    <li onClick={() => setmenu("mouse")}><Link to='/mouse'>Mouse</Link>{menu === "mouse" ? <hr /> : <></>}</li>
+                    <li onClick={() => setmenu("keyboard")}><Link to='/keyboard'>Keyboard</Link>{menu === "keyboard" ? <hr /> : <></>}</li>
                 </ul>
             </div>
             <div className="navbar-right">
