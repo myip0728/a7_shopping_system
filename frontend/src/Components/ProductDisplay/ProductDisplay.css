@@ -65,6 +65,31 @@
     font-size: 30px;
 }
 
+.productdisplay-right-description h1 {
+    margin-top: 55px;
+    color: #656565;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.quantity-container h1 {
+    margin-top: 55px;
+    color: #656565;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.quantity-container form input {
+    padding: 5px;
+    border: 1px solid rgba(101, 101, 101, 0.4);
+    border-radius: 7px;
+    width: 40px;
+    height: 25px;
+    font-size: 18px;
+    font-family: Poppins;
+}
+
 .productdisplay-right-option h1 {
     margin-top: 55px;
     color: #656565;
@@ -79,7 +104,8 @@
 }
 
 .productdisplay-right-options div {
-    padding: 18px 24px;
+    padding: 7px 14px;
+    border-radius: 7px;
     background-color: #EAEAEA;
     border: 2px solid #D74444;
     cursor: pointer;

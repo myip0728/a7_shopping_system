@@ -13,9 +13,27 @@
 }
 
 .shopcategory-sort {
+    display: flex;
+    align-items: center;
     padding: 10px;
     border-radius: 40px;
     border: 1px solid #888;
+}
+
+.shopcategory-sort img {
+    margin-left: 5px;
+}
+
+.shopcategory-sort form {
+    margin-left: 2px;
+    border: none;
+}
+
+.shopcategory-sort select {
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    font-family: Poppins;
 }
 
 .shopcategory-indexSort p span {

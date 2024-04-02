@@ -22,7 +22,13 @@ let all_product = [
         no_review: 100,
         review: 4,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 2,
@@ -37,7 +43,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 3,
@@ -52,7 +64,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 4,
@@ -67,7 +85,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 5,
@@ -82,7 +106,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 6,
@@ -97,7 +127,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 7,
@@ -112,7 +148,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 8,
@@ -127,7 +169,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 9,
@@ -142,7 +190,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 10,
@@ -157,7 +211,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 11,
@@ -171,7 +231,13 @@ let all_product = [
         tag: ["Mouse", "Logitech"],
         no_review: 100, review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 12,
@@ -186,7 +252,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 13,
@@ -201,7 +273,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 14,
@@ -216,7 +294,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 15,
@@ -231,7 +315,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 16,
@@ -246,7 +336,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 17,
@@ -261,7 +357,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 18,
@@ -276,7 +378,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 19,
@@ -291,7 +399,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 20,
@@ -306,7 +420,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 21,
@@ -321,7 +441,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 22,
@@ -336,7 +462,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 23,
@@ -351,7 +483,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 24,
@@ -366,7 +504,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 25,
@@ -381,7 +525,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
     {
         id: 26,
@@ -396,7 +546,13 @@ let all_product = [
         no_review: 100,
         review: 5,
         description: "Testing",
-        comment: ["Testing1", "Testing2"]
+        comment: [{
+            username: 'User1',
+            text: 'Comment000001'
+        }, {
+            username: 'User2',
+            text: 'Comment000002'
+        }]
     },
 
 ]

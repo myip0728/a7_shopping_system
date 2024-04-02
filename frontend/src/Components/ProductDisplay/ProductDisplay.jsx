@@ -44,6 +44,9 @@ const ProductDisplay = (props) => {
         });
     };
 
+    //Function for handling the quantity of the quantity selected by user
+
+
     return (
         <div className="productdisplay">
             <div className="productdisplay-left">
@@ -71,13 +74,24 @@ const ProductDisplay = (props) => {
                             <img key={index + product.review} src={star_dull_icon} alt="" />
                         ))
                     )}
-                    <p>(122)</p>
+                    <p>{product.no_review}</p>
                 </div>
                 <div className="productdisplay-right-prices">
                     <div className="productdisplay-right-price-old">${product.old_price}</div>
                     <div className="productdisplay-right-price-new">${product.new_price}</div>
                 </div>
-                <div className="productdisplay-right-description">{product.description}</div>
+                <div className="productdisplay-right-description">
+                    <h1>Short description:</h1>
+                    <div>{product.description}</div>
+                </div>
+
+                <div className="quantity-container">
+                    <h1>Quantity: </h1>
+                    <form>
+                        <input type="number" max="50" min="0" placeholder='0' />
+                    </form>
+                </div>
+
                 <div className="productdisplay-right-option">
                     <h1>Select {product.option_type}</h1>
                     <div className="productdisplay-right-options">
@@ -96,7 +110,7 @@ const ProductDisplay = (props) => {
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>
             </div>
-        </div>
+        </div >
     )
 }
 
