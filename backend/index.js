@@ -172,4 +172,4 @@ app.post('/signup', async(req,res)=>{
     }
     const token = jwt.sign(data, 'secret_Tech');
     res.json({success:true, token});
-})
+}) 
