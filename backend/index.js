@@ -149,6 +149,7 @@ const User = mongoose.model('Users',{
     }
 })
 
+//signup
 app.post('/signup', async(req,res)=>{
     let check = await User.findOne({email : req.body.email});
     if(check){
@@ -158,7 +159,7 @@ app.post('/signup', async(req,res)=>{
     for (let i = 0; i < 300; i++){
         cart[i] = 0;
     }
-    const user = new Users({
+    const user = new User({
         name : req.body.name ,
         email : req.body.email ,
         password : req.body.password,
@@ -174,3 +175,25 @@ app.post('/signup', async(req,res)=>{
     res.json({success:true, token});
 }) 
 
+//login
+app.post("/login",async(req,res) =>{
+    const user = await User.findOne({email:req.body.email});
+    if(user){
+        const passCompare = req.body.password === user.password;
+        if(passCompare){
+            const data={
+                user:{
+                    id:user.id
+                }
+            }
+            const token=jwt.sign(data,'secret_Tech');
+            res.json({success:true,token});
+        }
+        else{
+            res.json({success:false,errors:'Wrong password! Please try again.'});
+        }
+    }
+    else{
+        res.json({success:false,errors:"Wrong email! Please try again."});
+    }
+})
