@@ -11,7 +11,7 @@ import p1_4_img from "./Product_1/Product_1_4.png"
 let all_product = [
     {
         id: 1,
-        name: "Apple AirPods Max 1",
+        name: "Apple AirPods Max 1 Oldest",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3000,
@@ -20,7 +20,7 @@ let all_product = [
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
         no_review: 100,
-        review: 4,
+        review: 5,
         description: "Testing",
         comment: [{
             username: 'User1',
@@ -33,7 +33,7 @@ let all_product = [
     },
     {
         id: 2,
-        name: "Apple Airpods Max 2",
+        name: "Apple Airpods Max 2 Oldest",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3000,
@@ -55,7 +55,7 @@ let all_product = [
     },
     {
         id: 3,
-        name: "Apple Airpods Max 3",
+        name: "Apple Airpods Max 3 Oldest",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -472,10 +472,10 @@ let all_product = [
     },
     {
         id: 22,
-        name: "Apple Airpods Max Testing",
+        name: "Apple Airpods Max Price 2000",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
-        new_price: 3499,
+        new_price: 2000,
         old_price: 3499,
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
@@ -494,7 +494,7 @@ let all_product = [
     },
     {
         id: 23,
-        name: "Apple Airpods Max Testing",
+        name: "Apple Airpods Max Review 2",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -503,7 +503,7 @@ let all_product = [
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
         no_review: 100,
-        review: 5,
+        review: 2,
         description: "Testing",
         comment: [{
             username: 'User1',
@@ -516,7 +516,7 @@ let all_product = [
     },
     {
         id: 24,
-        name: "Apple Airpods Max Testing",
+        name: "Apple Airpods Max Review 3",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -525,7 +525,7 @@ let all_product = [
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
         no_review: 100,
-        review: 5,
+        review: 3,
         description: "Testing",
         comment: [{
             username: 'User1',
@@ -538,7 +538,7 @@ let all_product = [
     },
     {
         id: 25,
-        name: "Apple Airpods Max Testing",
+        name: "Apple Airpods Max Review 4",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -547,7 +547,7 @@ let all_product = [
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
         no_review: 100,
-        review: 5,
+        review: 4,
         description: "Testing",
         comment: [{
             username: 'User1',
@@ -560,7 +560,7 @@ let all_product = [
     },
     {
         id: 26,
-        name: "Apple Airpods Max Testing",
+        name: "Apple Airpods Max Review 5",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
