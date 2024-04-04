@@ -9,29 +9,61 @@ export const Signup = () => {
     const [visible1, setVisible1] = useState(false); //Password 1 visibility
     const [visible2, setVisible2] = useState(false); //Password 2 visibility
 
+    const signup = async () => {
+        console.log("Signup Function Executed", formData);
+        let responseData;
+        await fetch('http://localhost:4000/signup', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/form-data',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(formData),
+            }).then((response)=>{return response.json()}).then((data)=>responseData=data)
+        if(responseData.success){
+            localStorage.setItem('token',responseData.token);
+            window.location.href='/'
+        }
+        else {
+            alert(responseData.error)
+        }
+    }
+
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+
+    })
+
+    const changeHandler = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
     return (
         <div className='loginsignup'>
             <div className="signup-container">
                 <h1>Sign Up</h1>
                 <div className='loginsignup-fields'>
-                    <input type="text" placeholder='Username' />
+                    <input name='username' value={formData.username} onChange={changeHandler} type="text" placeholder='Username' />
                 </div>
                 <div className='loginsignup-fields'>
-                    <input type="email" placeholder='Eamil Address' />
+                    <input name='email' value={formData.email} onChange={changeHandler} type="email" placeholder='Eamil Address' />
                 </div>
                 <div className='loginsignup-fields'>
-                    <input type={visible1 ? "text" : "password"} placeholder='Password' />
+                    <input name='password' value={formData.password} onChange={changeHandler} type={visible1 ? "text" : "password"} placeholder='Password' />
                     <div onClick={() => setVisible1(!visible1)}>
                         {visible1 ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                     </div>
                 </div>
                 <div className='loginsignup-fields'>
-                    <input type={visible2 ? "text" : "password"} placeholder='Confirm Password' />
+                    <input name='confirmPassword' value={formData.confirmPassword} onChange={changeHandler} type={visible2 ? "text" : "password"} placeholder='Confirm Password' />
                     <div onClick={() => setVisible2(!visible2)}>
                         {visible2 ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                     </div>
                 </div>
-                <button>Continue</button>
+                <button onClick={()=>signup()}>Continue</button>
                 <p className="loginsignup-login">Already have an account? <Link style={{ textDecoration: 'none' }} to='/login'><span>Login Here</span></Link></p>
                 <div className="loginsignup-agree">
                     <input type="checkbox" name='' id='' />
