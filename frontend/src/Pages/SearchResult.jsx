@@ -18,15 +18,24 @@ export const SearchResult = (props) => {
     const [new_keywords, setNewKeywords] = useState("");
     const [Result, setResult] = useState([]);
 
-    useEffect(() => {
-        const searchResult = all_product.filter((product) =>
-            product.name.toLowerCase().includes(old_keywords.toLowerCase())
-        );
+    useEffect(() => { //This ensures that the returned array of product is contains the keywords
+        const searchResult = all_product.filter((product) => {
+            const productName = product.name.toLowerCase(); //Getting the product name in all_product
+            const category = product.category.toLowerCase(); //Getting the product category in all_product
+            const tags = product.tag.map((tag) => tag.toLowerCase()); //Getting the product tag in all_product
+            const keywords = old_keywords.toLowerCase(); //Getting the keyword we are searching
+
+            return ( //Return the filtered product that meet any one of the conditions
+                productName.includes(keywords) ||
+                category.includes(keywords) ||
+                tags.some((tag) => tag.includes(keywords))
+            );
+        });
+
         setResult(searchResult);
         setFilteredProducts(searchResult);
         setNumToShow(Math.min(12, searchResult.length));
     }, [all_product, old_keywords]);
-
 
 
     useEffect(() => { //This ensure rerendering when the web application switch page in different categories
@@ -67,7 +76,7 @@ export const SearchResult = (props) => {
 
     const productsToShow = filteredProducts.slice(0, numToShow);
 
-    const handleLoadMore = () => { //This handle when the user click Explore more button to show more product under this category
+    const handleLoadMore = () => {
         setNumToShow(numToShow + 12);
     };
 
@@ -78,11 +87,11 @@ export const SearchResult = (props) => {
         } else { setSelectedSortOption("0"); }
     };
 
-    const handleSortOptionChange = (event) => {
+    const handleSortOptionChange = (event) => { //handle the change of sorting option when the user change
         setSelectedSortOption(event.target.value);
     };
 
-    const handleKeywordsChange = (event) => {
+    const handleKeywordsChange = (event) => { //handle the change of inputting of the new keyword when user wish to search one more time
         setNewKeywords(event.target.value);
     };
 
@@ -125,8 +134,9 @@ export const SearchResult = (props) => {
                 <div className='search-result-loadmore' onClick={handleLoadMore}>
                     Explore more
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     )
 }
 

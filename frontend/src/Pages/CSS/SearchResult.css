@@ -52,6 +52,8 @@
     color: #787878;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
+
 }
 
 .searchResult {
