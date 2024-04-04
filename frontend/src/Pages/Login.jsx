@@ -21,7 +21,7 @@ export const Login = () => {
             }).then((response)=>{return response.json()}).then((data)=>responseData=data)
         if(responseData.success){
             localStorage.setItem('token',responseData.token);
-            window.location.replace='/'
+            window.location.href='/'
         }
         else {
             alert(responseData.error)
