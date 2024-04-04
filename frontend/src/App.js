@@ -1,4 +1,3 @@
-
 import './App.css';
 import { Navbar } from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
@@ -11,6 +10,7 @@ import Signup from './Pages/Signup';
 import Product from './Pages/Product';
 import UserPage from './Pages/UserPage';
 import Search from './Pages/Search';
+import SearchResult from './Pages/SearchResult';
 import headphone_banner from './Components/Assets/headphone_banner.png';
 import laptop_banner from './Components/Assets/laptop_banner.png';
 import keyboard_banner from './Components/Assets/keyboard_banner.png';
@@ -31,6 +31,7 @@ function App() {
             <Route path=':productId' element={<Product />} />
           </Route>
           <Route path='/search' element={<Search />}></Route>
+          <Route path='/searchresult' element={<SearchResult />}></Route>
           <Route path='/userpage' element={<UserPage />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/login' element={<Login />}></Route>
