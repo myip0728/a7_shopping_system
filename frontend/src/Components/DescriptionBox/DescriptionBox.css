@@ -23,11 +23,76 @@
     color: #555;
 }
 
-.descriptionbox-description {
+.description-Section {
     display: flex;
     flex-direction: column;
     gap: 25px;
     border: 1px solid #EAEAEA;
     padding: 48px;
     padding-bottom: 70px;
+}
+
+.comment-Section {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #EAEAEA;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 70px;
+    height: 400px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.comment-Section-inner {
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-Section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comment-Section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.comment-Section::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 4px;
+}
+
+.comment-Section::-webkit-scrollbar-thumb:hover {
+    background: #7c7c7c;
+}
+
+.commentbox {
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.commentbox h1 {
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 650;
+}
+
+.comment-form {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: Poppins;
+
+}
+
+.comment-form button {
+    display: block;
+    margin: 0 auto;
 }

@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
+import { ShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = (props) => {
     const { product } = props
     const [selectedOption, setSelectedOption] = useState(null); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
+    const { addToCart } = useContext(ShopContext);
 
-    //This useEffect ensure the product image will be reloaded everytime when the productDisplay section is reloaded
+
+
+    //This useEffect ensure the product image will be reloaded every time when the productDisplay section is reloaded
     useEffect(() => {
         setImages([...product.images]);
     }, [product]);
@@ -111,7 +115,7 @@ const ProductDisplay = (props) => {
                         ))}
                     </div>
                 </div>
-                <button>Add to Cart</button>
+                <button onClick={() => { addToCart(product.id) }}>Add to Cart</button>
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>
             </div>

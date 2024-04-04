@@ -5,19 +5,19 @@
     gap: 10px;
     height: 90vh;
     margin-bottom: 100px;
+
 }
 
-.relatedproducts h1 {
+.relatedproducts-heading {
+    border-bottom: 5px solid #252525;
+    margin-bottom: 30px;
+}
+
+.relatedproducts-heading h1 {
     color: #171717;
     font-size: 50px;
     font-weight: 600;
-}
 
-.relatedproducts hr {
-    width: 200px;
-    height: 6px;
-    border-radius: 10px;
-    background: #252525;
 }
 
 .relatedproducts-item {
