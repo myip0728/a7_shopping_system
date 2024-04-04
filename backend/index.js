@@ -119,17 +119,8 @@ app.get('/allproducts',async (req,res)=>{
     res.send(products);
 })
 
-app.listen(port,(error)=>{
-    if(!error){
-        console.log("Server Running on Port "+port)
-    }
-    else{
-        console.log("Error: "+error)
-    }
-})
-
 //add user 
-const User = mongoose.model('Users',{
+const Users = mongoose.model('Users',{
     name:{
         type:String,
     },
@@ -151,7 +142,7 @@ const User = mongoose.model('Users',{
 
 //signup
 app.post('/signup', async(req,res)=>{
-    let check = await User.findOne({email : req.body.email});
+    let check = await Users.findOne({email : req.body.email});
     if(check){
         return res.status(400).json({success:false,errors:"Email already exists"})
     }
@@ -159,7 +150,7 @@ app.post('/signup', async(req,res)=>{
     for (let i = 0; i < 300; i++){
         cart[i] = 0;
     }
-    const user = new User({
+    const user = new Users({
         name : req.body.name ,
         email : req.body.email ,
         password : req.body.password,
@@ -172,12 +163,12 @@ app.post('/signup', async(req,res)=>{
         }
     }
     const token = jwt.sign(data, 'secret_Tech');
-    res.json({success:true, token});
+    res.json({success:true, token})
 }) 
 
 //login
-app.post("/login",async(req,res) =>{
-    const user = await User.findOne({email:req.body.email});
+app.post('/login',async(req,res) =>{
+    let user = await Users.findOne({email:req.body.email});
     if(user){
         const passCompare = req.body.password === user.password;
         if(passCompare){
@@ -194,6 +185,51 @@ app.post("/login",async(req,res) =>{
         }
     }
     else{
-        res.json({success:false,errors:"Wrong email! Please try again."});
+        res.json({success:false,errors:"Wrong email! Please try again."})
+    }
+})
+
+//creating middlware to fetch user
+    const fetchUser=async(req,res,next)=>{
+        const token=req.header('auth-token');
+        if(!token){
+            res.status(401).send({errors:"Please authenticate using valid token"})
+        }
+        else{
+            try{
+                const data=jwt.verify(token,'secret_ecom');
+                req.user=data.user;
+                next();
+            }catch(error){
+                res.status(401).send({errors:"Please authericate using a valid token"})
+            }
+        }
+    }
+
+//add product in cartdata
+app.post('/addtocart',fetchUser,async (req,res)=>{
+    console.log("added",req.body.itemId);
+    let userData=await Users.findOne({_id:req.user.id});
+    userData.cartData[req.body.itemId]+=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Added")
+})
+
+//remove product in cartdata
+app.post('/removefromcart',fetchUser,async(req,res)=>{
+    console.log("removed",req.body.itemId);
+    let userData=await Users.findOne({_id:req.user.id});
+    if(userData.cartData[req.body.itemId]>0)
+    userData.cartData[req.body.itemId]-=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Removed")
+})
+
+app.listen(port,(error)=>{
+    if(!error){
+        console.log("Server Running on Port "+port)
+    }
+    else{
+        console.log("Error: "+error)
     }
 })
