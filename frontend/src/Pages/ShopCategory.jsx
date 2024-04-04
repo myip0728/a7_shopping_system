@@ -23,10 +23,10 @@ export const ShopCategory = (props) => {
                 sortedProducts = [...updatedFilteredProducts];
                 break;
             case "1": // highest to lowest rating
-                sortedProducts.sort((a, b) => b.review - a.review);
+                sortedProducts.sort((a, b) => b.rating - a.rating);
                 break;
             case "2": // lowest to highest rating
-                sortedProducts.sort((a, b) => a.review - b.review);
+                sortedProducts.sort((a, b) => a.rating - b.rating);
                 break;
             case "3": // highest to lowest price
                 sortedProducts.sort((a, b) => b.new_price - a.new_price);

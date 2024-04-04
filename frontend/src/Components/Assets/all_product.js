@@ -19,9 +19,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -41,9 +42,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -63,9 +65,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -85,9 +88,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -107,9 +111,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black"],
         tag: ["Macbook", "Apple", "Laptop"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -129,9 +134,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black"],
         tag: ["Macbook", "Apple", "Laptop"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -151,9 +157,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black"],
         tag: ["Macbook", "Apple", "Laptop"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -173,9 +180,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black"],
         tag: ["Macbook", "Apple", "Laptop"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -195,9 +203,10 @@ let all_product = [
         option_type: [],
         option: [],
         tag: ["Mouse", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -217,9 +226,10 @@ let all_product = [
         option_type: [],
         option: [],
         tag: ["Mouse", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -239,8 +249,10 @@ let all_product = [
         option_type: [],
         option: [],
         tag: ["Mouse", "Logitech"],
-        no_review: 100, review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -260,9 +272,10 @@ let all_product = [
         option_type: [],
         option: [],
         tag: ["Mouse", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -282,9 +295,10 @@ let all_product = [
         option_type: "Switch",
         option: ["Red", "Brown"],
         tag: ["Keyboard", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -304,9 +318,10 @@ let all_product = [
         option_type: "Switch",
         option: ["Red", "Brown"],
         tag: ["Keyboard", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -326,9 +341,10 @@ let all_product = [
         option_type: "Switch",
         option: ["Red", "Brown"],
         tag: ["Keyboard", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -348,9 +364,10 @@ let all_product = [
         option_type: "Switch",
         option: ["Red", "Brown"],
         tag: ["Keyboard", "Logitech"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -370,9 +387,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -392,9 +410,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -414,9 +433,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -436,9 +456,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -458,9 +479,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -480,9 +502,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -494,7 +517,7 @@ let all_product = [
     },
     {
         id: 23,
-        name: "Apple Airpods Max Review 2",
+        name: "Apple Airpods Max Rating 2",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -502,9 +525,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 2,
-        description: "Testing",
+        no_order: 100,
+        rating: 2,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -516,7 +540,7 @@ let all_product = [
     },
     {
         id: 24,
-        name: "Apple Airpods Max Review 3",
+        name: "Apple Airpods Max Rating 3",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -524,9 +548,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 3,
-        description: "Testing",
+        no_order: 100,
+        rating: 3,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -538,7 +563,7 @@ let all_product = [
     },
     {
         id: 25,
-        name: "Apple Airpods Max Review 4",
+        name: "Apple Airpods Max Rating 4",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -546,9 +571,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 4,
-        description: "Testing",
+        no_order: 100,
+        rating: 4,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'
@@ -560,7 +586,7 @@ let all_product = [
     },
     {
         id: 26,
-        name: "Apple Airpods Max Review 5",
+        name: "Apple Airpods Max Rating 5",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3499,
@@ -568,9 +594,10 @@ let all_product = [
         option_type: "Color",
         option: ["Silver", "Black", "Pink", "Blue", "Green"],
         tag: ["Headphone", "Apple", "Airpods Max"],
-        no_review: 100,
-        review: 5,
-        description: "Testing",
+        no_order: 100,
+        rating: 5,
+        short_description: "Short Description Testing",
+        description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
         comment: [{
             username: 'User1',
             text: 'Comment000001'

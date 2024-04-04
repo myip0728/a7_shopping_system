@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
@@ -8,10 +8,15 @@ const ProductDisplay = (props) => {
     const [selectedOption, setSelectedOption] = useState(null); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
 
-    //Fuction for rendering no. of review stars
+    //This useEffect ensure the product image will be reloaded everytime when the productDisplay section is reloaded
+    useEffect(() => {
+        setImages([...product.images]);
+    }, [product]);
+
+    //Function for rendering no. of rating stars
     const renderStars = () => {
         const stars = [];
-        for (let i = 0; i < product.review; i++) {
+        for (let i = 0; i < product.rating; i++) {
             stars.push(<img key={i} src={star_icon} alt="" />);
         }
         return stars;
@@ -69,12 +74,12 @@ const ProductDisplay = (props) => {
                 <h1>{product.name}</h1>
                 <div className="product-right-star">
                     {renderStars()}
-                    {product.review < 5 && (
-                        Array.from({ length: 5 - product.review }).map((_, index) => (
-                            <img key={index + product.review} src={star_dull_icon} alt="" />
+                    {product.rating < 5 && (
+                        Array.from({ length: 5 - product.rating }).map((_, index) => (
+                            <img key={index + product.rating} src={star_dull_icon} alt="" />
                         ))
                     )}
-                    <p>{product.no_review}</p>
+                    <p>{product.no_order}</p>
                 </div>
                 <div className="productdisplay-right-prices">
                     <div className="productdisplay-right-price-old">${product.old_price}</div>
@@ -82,7 +87,7 @@ const ProductDisplay = (props) => {
                 </div>
                 <div className="productdisplay-right-description">
                     <h1>Short description:</h1>
-                    <div>{product.description}</div>
+                    <div>{product.short_description}</div>
                 </div>
 
                 <div className="quantity-container">
