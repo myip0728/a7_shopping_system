@@ -18,10 +18,13 @@ export const Login = () => {
                 'Content-Type':'application/json',
             },
             body:JSON.stringify(formData),
-            }).then((response)=>{return response.json()}).then((data)=>responseData=data)
+            })
+            .then((response)=>{return response.json()})
+            .then((data)=>responseData=data);
+            console.log(responseData);
         if(responseData.success){
             localStorage.setItem('token',responseData.token);
-            window.location.replace='/'
+            window.location.href = "/";
         }
         else{
             alert(responseData.error)
@@ -50,7 +53,7 @@ export const Login = () => {
                         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                     </div>
                 </div>
-                <button>Continue</button>
+                <button onClick={()=>login()}>Continue</button>
                 <p className="loginsignup-login">Dont have an account? <Link style={{ textDecoration: 'none' }} to='/signup'><span>Sign up Here</span></Link></p>
                 <div className="loginsignup-agree">
                 </div>
