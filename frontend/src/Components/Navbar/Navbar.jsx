@@ -44,7 +44,9 @@ export const Navbar = () => {
                     <Link to='/userpage'><img src={userprofile_icon} alt="" /></Link>
                     <Link to='/cart'><img src={cart_icon} alt="" /></Link>
                     <div className="nav-cart-count">0</div>
-                    <Link to='/login'><button>Login</button></Link>
+                    {localStorage.getItem('token')
+                    ?<button onClick={()=>{localStorage.removeItem('token');window.location.replace('/')}}>Logout</button>
+                    :<Link to='/login'><button>Login</button></Link>}
                 </div>
             </div>
         </div>
