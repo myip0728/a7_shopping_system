@@ -11,7 +11,7 @@ const { stringify } = require("querystring");
 app.use(express.json());
 app.use(cors());
 
-//Database connection with MongoDB
+//connect database with MongoDB
 mongoose.connect("mongodb+srv://greatstackdev:a7shop@cluster0.mwq7kfw.mongodb.net/A7_SHOPPING_SYSTEM");
 
 //API creation
@@ -75,6 +75,7 @@ const Product=mongoose.model("Product",{
     },
 })
 
+//add product
 app.post('/addproduct',async (req,res)=>{
     //id automatically generated in database
     let products=await Product.find({});
@@ -104,6 +105,7 @@ app.post('/addproduct',async (req,res)=>{
     })
 })
 
+//remove product
 app.post('/removeproduct', async (req,res)=>{
     await Product.findOneAndDelete({id:req.body.id});
     console.log("Removed");
@@ -113,6 +115,7 @@ app.post('/removeproduct', async (req,res)=>{
     })
 })
 
+//show all products
 app.get('/allproducts',async (req,res)=>{
     let products=await Product.find({});
     console.log("All products Fetched");
@@ -189,7 +192,7 @@ app.post('/login',async(req,res) =>{
     }
 })
 
-//creating middlware to fetch user
+//create middlware to fetch user
     const fetchUser=async(req,res,next)=>{
         const token=req.header('auth-token');
         if(!token){
@@ -223,6 +226,13 @@ app.post('/removefromcart',fetchUser,async(req,res)=>{
     userData.cartData[req.body.itemId]-=1;
     await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
     res.send("Removed")
+})
+
+//get cartdata after login
+app.post('/getcart',fetchUser,async(req,res)=>{
+    console.log("GetCart");
+    let userData=await Users.findOne({_id:req.user.id});
+    res.json(userData.cartData);
 })
 
 app.listen(port,(error)=>{
