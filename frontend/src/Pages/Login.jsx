@@ -18,13 +18,13 @@ export const Login = () => {
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify(formData),
-            }).then((response)=>{return response.json()}).then((data)=>responseData=data)
+            }).then((response)=>response.json()).then((data)=>responseData=data)
         if(responseData.success){
             localStorage.setItem('token',responseData.token);
-            window.location.href='/'
+            window.location.replace("/");
         }
         else {
-            alert(responseData.error)
+            alert(responseData.errors)
         }
     }
 
