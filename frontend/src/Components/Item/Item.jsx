@@ -15,7 +15,7 @@ const Item = (props) => {
                         ${props.new_price}
                     </div>
                     <div className="item-price-old">
-                        {PriceNotEqual && <div>${props.new_price}</div>}
+                        {PriceNotEqual && <div>${props.old_price}</div>}
                     </div>
                 </div>
             </div>

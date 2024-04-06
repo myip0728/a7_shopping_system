@@ -227,7 +227,7 @@ let all_product = [
         option_type: [],
         option: [],
         tag: ["Mouse", "Logitech"],
-        no_order: 100,
+        no_order: 1000,
         rating: 5,
         short_description: "Short Description Testing",
         description: "The innovative XYZ product is designed to revolutionize your daily life.With its cutting- edge technology and sleek design, this product offers unparalleled functionality and style.Whether you're a tech enthusiast, a busy professional, or a casual user, this versatile device caters to all your needs. Its advanced features include seamless connectivity, intuitive controls, and enhanced performance. Experience the ultimate convenience as you effortlessly navigate through its user-friendly interface. The XYZ product boasts a durable build, ensuring long-lasting reliability and durability. Its ergonomic design provides comfort and ease of use, making it perfect for extended periods of usage. Immerse yourself in the world of possibilities with the XYZ product's impressive capabilities.From entertainment to productivity, this product enhances every aspect of your digital experience.Elevate your lifestyle with the XYZ product and embrace a new level of innovation.",
