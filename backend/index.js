@@ -118,7 +118,7 @@ app.post('/removeproduct', async (req,res)=>{
 //show all products
 app.get('/allproducts',async (req,res)=>{
     let products=await Product.find({});
-    console.log("All products Fetched");
+    console.log("All products fetched.");
     res.send(products);
 })
 
@@ -190,6 +190,13 @@ app.post('/login',async(req,res) =>{
     else{
         res.json({success:false,errors:"Wrong email! Please try again."})
     }
+})
+
+//show all users
+app.get('/allusers',async (req,res)=>{
+    let users=await Users.find({});
+    console.log("All users fetched.");
+    res.send(users);
 })
 
 //create middlware to fetch user
