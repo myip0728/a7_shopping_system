@@ -108,7 +108,7 @@ app.post('/addproduct',async (req,res)=>{
 //remove product
 app.post('/removeproduct', async (req,res)=>{
     await Product.findOneAndDelete({id:req.body.id});
-    console.log("Removed");
+    console.log("Removed a product.");
     res.json({
         success: true,
         name:req.body.name
@@ -193,10 +193,20 @@ app.post('/login',async(req,res) =>{
 })
 
 //show all users
-app.get('/allusers',async (req,res)=>{
+app.get('/alluser',async (req,res)=>{
     let users=await Users.find({});
     console.log("All users fetched.");
     res.send(users);
+})
+
+//remove user
+app.post('/removeuser', async (req,res)=>{
+    await Users.findOneAndDelete({email:req.body.email});
+    console.log("Removed the user.");
+    res.json({
+        success: true,
+        enail:req.body.email
+    })
 })
 
 //create middlware to fetch user
