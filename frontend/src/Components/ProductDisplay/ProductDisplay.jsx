@@ -9,13 +9,28 @@ const ProductDisplay = (props) => {
     const [selectedOption, setSelectedOption] = useState(null); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
     const { addToCart } = useContext(ShopContext);
+    const [quantity, setQuantity] = useState(0);
+    const [stockAvailable, setStockAvailable] = useState(true);
+    const [addToCartAvailable, setAddToCartAvailable] = useState(true);
+    const [priceEqual, setPriceEqual] = useState(false);
 
-
-
-    //This useEffect ensure the product image will be reloaded every time when the productDisplay section is reloaded
     useEffect(() => {
+        //This useEffect ensure the product image will be reloaded every time when the productDisplay section is reloaded
         setImages([...product.images]);
-    }, [product]);
+        //Checking whether the product is available
+        if (product.no_stock === 0) {
+            setStockAvailable(false);
+        } else { setStockAvailable(true); }
+        //Checking whether the asked quantity is greater than the no of stock
+        if (product.no_stock - quantity < 0 || product.no_stock === 0) {
+            setAddToCartAvailable(false);
+        } else { setAddToCartAvailable(true); }
+        //Checking are the new price and old price are equal
+        if (product.new_price === product.old_price) {
+            setPriceEqual(true);
+        } else { setPriceEqual(false); }
+
+    }, [product, quantity, stockAvailable]);
 
     //Function for rendering no. of rating stars
     const renderStars = () => {
@@ -54,7 +69,10 @@ const ProductDisplay = (props) => {
     };
 
     //Function for handling the quantity of the quantity selected by user
-
+    const handleQuantityChange = (event) => {
+        const value = event.target.value;
+        setQuantity(value);
+    };
 
     return (
         <div className="productdisplay">
@@ -83,41 +101,67 @@ const ProductDisplay = (props) => {
                             <img key={index + product.rating} src={star_dull_icon} alt="" />
                         ))
                     )}
-                    <p>{product.no_order}</p>
                 </div>
-                <div className="productdisplay-right-prices">
+                <p>No. of purchase: {product.no_order}</p>
+
+                {/*If the Price are equal only show one of them */}
+                {priceEqual === true ? <div className="productdisplay-right-prices">
+                    <div className="productdisplay-right-price-new">${product.new_price}</div>
+                </div> : <div className="productdisplay-right-prices">
                     <div className="productdisplay-right-price-old">${product.old_price}</div>
                     <div className="productdisplay-right-price-new">${product.new_price}</div>
-                </div>
+                </div>}
+
                 <div className="productdisplay-right-description">
                     <h1>Short description:</h1>
                     <div>{product.short_description}</div>
+                    <h1>Stock availability:</h1>
+                    {/*Render based on whether the product are in stock*/}
+                    <div>{stockAvailable === true ? `Currently in stock: ${product.no_stock}` : "Out of Stock"}</div>
                 </div>
 
                 <div className="quantity-container">
                     <h1>Quantity: </h1>
                     <form>
-                        <input type="number" max="50" min="0" placeholder='0' />
+                        <input type="number"
+                            min="0"
+                            placeholder='0'
+                            value={quantity}
+                            onChange={handleQuantityChange}
+                        />
                     </form>
                 </div>
 
                 <div className="productdisplay-right-option">
                     <h1>Select {product.option_type}</h1>
-                    <div className="productdisplay-right-options">
-                        {product.option.map((opt, index) => (
-                            <div
-                                key={index}
-                                className={index === selectedOption ? 'active' : ''}
-                                onClick={() => handleOptionClick(index)}
-                            >
-                                {opt}
-                            </div>
-                        ))}
-                    </div>
+                    {addToCartAvailable === true ?
+                        <div className="productdisplay-right-options">
+                            {product.option.map((opt, index) => (
+                                <div
+                                    key={index}
+                                    className={index === selectedOption ? 'active' : ''}
+                                    onClick={() => handleOptionClick(index)}
+                                >
+                                    {opt}
+                                </div>
+                            ))}
+                        </div> :
+                        <div className="productdisplay-right-options">
+                            {product.option.map((opt, index) => (
+                                <div key={index} className='unavailable'>
+                                    {opt}
+                                </div>
+                            ))}
+                        </div>
+                    }
                 </div>
-                <button onClick={() => { addToCart(product.id) }}>Add to Cart</button>
+                {/*Render based on whether the quantity the user choose is not available*/}
+                {addToCartAvailable === true ?
+                    <div className='add-to-cart-active' onClick={() => { addToCart(product.id) }}>Add to Cart</div> :
+                    <div className='add-to-cart-inactive'>Sorry, the product is not available</div>}
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>
+                <p className="productdisplay-right-category"><span>Product ID: </span>{product.id}</p>
             </div>
         </div >
     )
