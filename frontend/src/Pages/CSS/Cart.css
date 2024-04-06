@@ -1,0 +1,11 @@
+.cart-main {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cart-main h1 {
+    margin-left: 8%;
+    font-size: 40px;
+    font-weight: 600;
+}

@@ -59,7 +59,7 @@ let all_product = [
     },
     {
         id: 2,
-        name: "Apple Airpods Max 2 Oldest",
+        name: "Apple AirPods Max 2 Oldest",
         category: "headphone",
         images: [p1_img, p1_1_img, p1_2_img, p1_3_img, p1_4_img],
         new_price: 3000,

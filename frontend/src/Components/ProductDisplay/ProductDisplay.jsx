@@ -6,7 +6,7 @@ import { ShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = (props) => {
     const { product } = props
-    const [selectedOption, setSelectedOption] = useState(null); // For indicating whether the option is selected
+    const [selectedOption, setSelectedOption] = useState(""); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
     const { addToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState(0);
@@ -53,8 +53,8 @@ const ProductDisplay = (props) => {
     }
 
     //Handling when user click on the option of the product
-    const handleOptionClick = (index) => {
-        setSelectedOption(index);
+    const handleOptionClick = (opt) => {
+        setSelectedOption(opt);
     };
 
     //Function for handling the user click on the other images
@@ -70,8 +70,8 @@ const ProductDisplay = (props) => {
 
     //Function for handling the quantity of the quantity selected by user
     const handleQuantityChange = (event) => {
-        const value = event.target.value;
-        setQuantity(value);
+        const newQuantity = event.target.value;
+        setQuantity(newQuantity);
     };
 
     return (
@@ -136,11 +136,10 @@ const ProductDisplay = (props) => {
                     <h1>Select {product.option_type}</h1>
                     {addToCartAvailable === true ?
                         <div className="productdisplay-right-options">
-                            {product.option.map((opt, index) => (
+                            {product.option.map((opt) => (
                                 <div
-                                    key={index}
-                                    className={index === selectedOption ? 'active' : ''}
-                                    onClick={() => handleOptionClick(index)}
+                                    className={opt === selectedOption ? 'active' : ''}
+                                    onClick={() => handleOptionClick(opt)}
                                 >
                                     {opt}
                                 </div>
@@ -157,7 +156,7 @@ const ProductDisplay = (props) => {
                 </div>
                 {/*Render based on whether the quantity the user choose is not available*/}
                 {addToCartAvailable === true ?
-                    <div className='add-to-cart-active' onClick={() => { addToCart(product.id) }}>Add to Cart</div> :
+                    <div className='add-to-cart-active' onClick={() => { addToCart(product.id, selectedOption, parseInt(quantity)) }}>Add to Cart</div> :
                     <div className='add-to-cart-inactive'>Sorry, the product is not available</div>}
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>

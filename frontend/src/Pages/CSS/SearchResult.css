@@ -130,3 +130,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.search-result-price-range input[type="number"]::-webkit-inner-spin-button,
+.search-result-price-range input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.search-result-price-range input[type="number"] {
+    -moz-appearance: textfield;
+}
