@@ -21,6 +21,51 @@
     margin: 20px 0px;
 }
 
+.search-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.search-option p {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.search-fields-price-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.search-fields-price-range div {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.search-fields-price-range input {
+    height: 52px;
+    width: 30%;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 15px;
+    font-family: 'Poppins', cursive;
+}
+
 .search-fields input {
     height: 52px;
     width: 95%;

@@ -59,38 +59,74 @@
 .searchResult {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px;
+    margin-left: 130px;
+    gap: 10px;
+}
+
+.search-option {
+    display: flex;
     align-items: center;
-    height: 100%;
-    overflow-y: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.search-result-fields {
-    margin-top: 25px;
-    margin-bottom: 25px;
+.search-option p {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-.search-result-fields input {
-    height: 52px;
-    width: 700px;
+.search-bar-component {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.search-result-price-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-result-price-range input {
+    height: 35px;
+    width: auto;
     padding-left: 20px;
     border: 1px solid #c9c9c9;
     outline: none;
     color: #5c5c5c;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Poppins', cursive;
 }
 
-.searchResult button {
-    margin-left: 10px;
-    height: 55px;
-    width: auto;
-    font-size: 18px;
-    padding: 15px;
+.search-result-fields input {
+    height: 35px;
+    width: 300px;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 15px;
+    font-family: 'Poppins', cursive;
 }
 
-.searchResult h1 {
+.search-bar-component button {
+    height: 35px;
+    width: auto;
+    margin-top: 0px;
+    border-radius: 8px;
+    padding: 0px 20px;
+}
+
+.search-result h1 {
+    display: flex;
     font-style: italic;
     font-weight: 600;
     font-size: 30px;
     text-decoration: underline;
+    justify-content: center;
+    align-items: center;
 }
