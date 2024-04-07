@@ -10,7 +10,8 @@ const Cart = () => {
     const { cartItems, removeitem } = useContext(ShopContext); //Getting Shopping CartItems
     const [selectedItems, setSelectedItems] = useState([]);
 
-
+    // Function for obtainig the new_price of a product
+    // via looping each product to find one with matched product id with input id
     const getProductPrice = (id) => {
         for (let i = 0; i < all_product.length; i++) {
             if (id === all_product[i].id) {
@@ -18,14 +19,21 @@ const Cart = () => {
             }
         }
         return null
-    }
+    };
 
+    // Purpose: return the total quantity of product items selected
+    // on each element in the selectedItems array, the return value of current total quantity plus quantity of this element is passed to the next element
+    // finally return a single value of the accumulated calculated quantity
     const totalQuantity = selectedItems.reduce((total, item) => total + item.quantity, 0);
+    // For obtaining the total price of product items selected
+    // method similar to the previous one on totalQuantity
     const totalPrice = selectedItems.reduce((total, item) => total + (item.quantity * getProductPrice(item.productId)), 0);
 
+    // Function for removing item, triggered by clicking the html image element (a "x" image)
     const handleRemoveItem = (event) => {
         let index = event.target.id;
 
+        // obtain the product id to which the "x" image element belongs
         const inputElement = document.getElementById(index);
         if (inputElement) {
             inputElement.checked = false;
@@ -36,12 +44,15 @@ const Cart = () => {
             prevSelectedItems.filter(item => item !== removedProduct)
         );
         removeitem(cartItems[index].productId, cartItems[index].option); // Setting the wanted product quantity to 0
-    }
+    };
 
+    // Function for adding the newly checked (selected) item into the array of selectedItems
+    // as well as to removing the unchecked item from the selectedItems array
     const handleSelectedItem = (event) => {
         const selectedIndex = parseInt(event.target.id, 10);
         const selectedItem = cartItems[selectedIndex];
 
+        // the value of event.target.checked here is already updated after clicking the checkbox
         if (event.target.checked) {
             setSelectedItems(prevSelectedItems => [...prevSelectedItems, selectedItem]);
         } else {
