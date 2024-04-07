@@ -165,13 +165,16 @@ app.get('/allproducts', async (req, res) => {
 const Users = mongoose.model('Users', {
     name: {
         type: String,
+        require: true,
     },
     email: {
         type: String,
         unique: true,
+        required: true
     },
     password: {
         type: String,
+        required: true
     },
     cartData: {
         type: [{ productId: Number, option: String, quantity: Number }],
@@ -194,7 +197,7 @@ app.post('/signup', async (req, res) => {
         return res.status(400).json({ success: false, errors: "Email already exists" })
     }
     const user = new Users({
-        name: req.body.name,
+        name: req.body.username,
         email: req.body.email,
         password: req.body.password,
     })
@@ -211,15 +214,6 @@ app.post('/signup', async (req, res) => {
 //login
 app.post('/login', async (req, res) => {
     let user = await Users.findOne({ email: req.body.email });
-
-    Product.countDocuments({})
-        .then(count => {
-            console.log(`Total number of products: ${count}`);
-        })
-        .catch(err => {
-            // Handle the error
-            console.error(err);
-        });
 
     if (user) {
         const passCompare = req.body.password === user.password;
@@ -258,7 +252,7 @@ app.post('/removeuser', async (req, res) => {
     })
 })
 
-//create middlware to fetch user
+//create middleware to fetch user
 const fetchUser = async (req, res, next) => {
     const token = req.header('token');
     if (!token) {
@@ -266,33 +260,85 @@ const fetchUser = async (req, res, next) => {
     }
     else {
         try {
-            const data = jwt.verify(token, 'secret_ecom');
+            const data = jwt.verify(token, 'secret_Tech');
             req.user = data.user;
             next();
         } catch (error) {
-            res.status(401).send({ errors: "Please authericate using a valid token" })
+            res.status(401).send({ errors: "Please authenticate using a valid token" })
         }
     }
 }
 
 //add product in cartdata
 app.post('/addtocart', fetchUser, async (req, res) => {
-    console.log("added", req.body.itemId);
     let userData = await Users.findOne({ _id: req.user.id });
-    userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
-    res.send("Added")
-})
+
+    if (userData.cartData.length === 0) {
+        userData.cartData.push(req.body);
+        await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+        res.send("Added");
+    } else {
+        let itemFound = false;
+
+        for (let i = 0; i < userData.cartData.length; i++) {
+            if (userData.cartData[i].productId === req.body.productId && userData.cartData[i].option === req.body.option) {
+                userData.cartData[i].quantity += req.body.quantity;
+                itemFound = true;
+                break;
+            }
+        }
+
+        if (itemFound) {
+            await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+            res.send("Added");
+        } else {
+            userData.cartData.push(req.body);
+            await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+            res.send("Added");
+        }
+    }
+});
+
+//edit product in cartdata
+app.post('/editcart', fetchUser, async (req, res) => {
+    console.log("edit", req.body.itemId);
+    let userData = await Users.findOne({ _id: req.user.id });
+
+    if (userData.cartData.length === 0) {
+        res.status(400).send("Cart is empty");
+    } else {
+        let itemFound = false;
+
+        for (let i = 0; i < userData.cartData.length; i++) {
+            if (userData.cartData[i].productId === req.body.productId && userData.cartData[i].option === req.body.option) {
+                userData.cartData[i].quantity = req.body.quantity;
+                itemFound = true;
+                break;
+            }
+        }
+
+        if (itemFound) {
+            await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+            res.send("edited");
+        } else {
+            res.status(400).send("Can't find the element");
+        }
+    }
+});
 
 //remove product in cartdata
-app.post('/removefromcart', fetchUser, async (req, res) => {
+app.post('/removecartitem', fetchUser, async (req, res) => {
     console.log("removed", req.body.itemId);
     let userData = await Users.findOne({ _id: req.user.id });
-    if (userData.cartData[req.body.itemId] > 0)
-        userData.cartData[req.body.itemId] -= 1;
-    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
-    res.send("Removed")
-})
+
+    if (userData.cartData.length === 0) {
+        res.status(400).send("Cart is empty");
+    } else {
+        const result = userData.cartData.filter(item => !(item.productId === req.body.productId && item.option === req.body.option));
+        await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: result });
+
+    }
+});
 
 //get cartdata after login
 app.post('/getcart', fetchUser, async (req, res) => {

@@ -18,10 +18,10 @@ export const Signup = () => {
                 Accept: 'application/form-data',
                 'Content-Type': 'application/json',
             },
-            body:JSON.stringify(formData),
-            }).then((response)=>response.json()).then((data)=>responseData=data)
-        if(responseData.success){
-            localStorage.setItem('token',responseData.token);
+            body: JSON.stringify(formData),
+        }).then((response) => response.json()).then((data) => responseData = data)
+        if (responseData.success) {
+            localStorage.setItem('token', responseData.token);
             window.location.replace("/");
         }
         else {
@@ -63,7 +63,7 @@ export const Signup = () => {
                         {visible2 ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                     </div>
                 </div>
-                <button onClick={()=>signup()}>Continue</button>
+                <button onClick={() => signup()}>Continue</button>
                 <p className="loginsignup-login">Already have an account? <Link style={{ textDecoration: 'none' }} to='/login'><span>Login Here</span></Link></p>
                 <div className="loginsignup-agree">
                     <input type="checkbox" name='' id='' />

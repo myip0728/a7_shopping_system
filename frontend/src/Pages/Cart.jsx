@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import './CSS/Cart.css'
 import cross_icon from '../Components/Assets/cart_cross_icon.png'
 import CartItems from '../Components/CartItems/CartItems'
@@ -7,7 +7,7 @@ import { ShopContext } from '../Context/ShopContext'
 
 const Cart = () => {
     const { all_product } = useContext(ShopContext); //Getting all product details
-    const { cartItems, editCart } = useContext(ShopContext); //Getting Shopping CartItems
+    const { cartItems, removeitem } = useContext(ShopContext); //Getting Shopping CartItems
     const [selectedItems, setSelectedItems] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -24,7 +24,7 @@ const Cart = () => {
 
     const handleRemoveItem = (event) => {
         let index = event.target.id;
-        editCart(cartItems[index].productId, cartItems[index].option, 0); // Setting the wanted product quantity to 0
+        removeitem(cartItems[index].productId, cartItems[index].option); // Setting the wanted product quantity to 0
     }
 
     const handleSelectedItem = (event) => {
