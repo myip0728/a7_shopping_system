@@ -1,11 +1,97 @@
 .cart-main {
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
+
 }
 
 .cart-main h1 {
     margin-left: 8%;
     font-size: 40px;
     font-weight: 600;
+}
+
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart-left {
+    overflow-y: auto;
+    height: 600px;
+    padding: 0px 20px;
+    flex-basis: auto;
+    margin-bottom: 30px;
+}
+
+.cart-right {
+    flex-basis: auto;
+    width: max-content;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 100px;
+}
+
+.cartitem-list {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.cartitem-list input {
+    margin-right: 40px;
+}
+
+
+.cross-icon {
+    cursor: pointer;
+    padding: 0px 20px;
+}
+
+.cart-left::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-left::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cart-left::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 4px;
+}
+
+.cart-left::-webkit-scrollbar-thumb:hover {
+    background: #7c7c7c;
+}
+
+.cart-right button {
+    width: 440px;
+    padding: 0px 30px;
+}
+
+.cartitem-summary {
+    width: 400px;
+    border: 1px solid rgb(179, 179, 179);
+    padding: 10px 20px;
+}
+
+.cartitem-summary h1 {
+    margin: 20px 0px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.cartitem-summary div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.cartitem-summary-total p {
+    font-weight: 700;
+}
+
+.cartitem-summary div p:first-child {
+    margin-right: auto;
 }

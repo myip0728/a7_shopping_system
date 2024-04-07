@@ -46,6 +46,7 @@ const getDefaultCart = () => { //This function is for generating default cart fo
                 quantity: 0
             }])
     }
+    cart[1][1].quantity = 9;
     return cart;
 };
 
@@ -96,12 +97,12 @@ const ShopContextProvider = (props) => {
         //}
     }
 
-    const removeFromCart = (productId, productOption) => {
+    const editCart = (productId, productOption, productQuantity) => {
         setCartItems(() => {
             let tmp = cartItems;
             for (let i = 0; i < tmp[productId].length; i++) {
                 if (tmp[productId][i].option === productOption) {
-                    tmp[productId][i].quantity = 0;
+                    tmp[productId][i].quantity = productQuantity;
                 }
             }
             return tmp;
@@ -125,7 +126,7 @@ const ShopContextProvider = (props) => {
 
     console.log(cartItems);
 
-    const contextValue = { all_product, cartItems, addToCart, removeFromCart };
+    const contextValue = { all_product, cartItems, addToCart, editCart };
 
     return (
         <ShopContext.Provider value={contextValue}>

@@ -3,7 +3,7 @@ import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext'
 
 const CartItems = (props) => {
-    const { all_product } = useContext(ShopContext);
+    const { all_product, editCart } = useContext(ShopContext);
     const productId = props.productId;
     const option = props.option;
     const [quantity, setQuantity] = useState(props.quantity);
@@ -23,22 +23,24 @@ const CartItems = (props) => {
                     setOptionType(all_product[i].option_type);
                     setOldPrice(all_product[i].old_price);
                     setNewPrice(all_product[i].new_price);
-                } else { return null };
+                }
             }
+            return null;
         }
 
         getProductData(productId);
     })
 
     const handleQuantityChange = (event) => {
-        const newQuantity = parseInt(event.target.value);
-        setQuantity(newQuantity);
         //and Update the shopping cart
+        editCart(productId, option, parseInt(event.target.value));
+        setQuantity(parseInt(event.target.value));
+        window.location.href = '/cart';
     }
 
     const generateQuantityOptions = () => {
         const options = [];
-        for (let i = 0; i <= 50; i++) {
+        for (let i = 1; i <= 50; i++) {
             options.push(<option key={i} value={i}>{i}</option>);
         }
         return options;
@@ -62,7 +64,7 @@ const CartItems = (props) => {
                         {generateQuantityOptions()}
                     </select>
                 </form>
-                <h2>Subtotal: {new_price}</h2>
+                <h2>Subtotal: {new_price * quantity}</h2>
             </div>
         </div>
     )
