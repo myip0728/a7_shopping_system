@@ -10,6 +10,18 @@
     font-weight: 600;
 }
 
+.cart-main-not-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 200px 0px;
+}
+
+.cart-main-not-login h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
 .cart-container {
     display: flex;
     flex-wrap: wrap;
