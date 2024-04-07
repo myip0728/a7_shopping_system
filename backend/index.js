@@ -160,7 +160,8 @@ app.get('/allproducts', async (req, res) => {
     res.send(products);
 })
 
-//add user 
+
+//User data schema
 const Users = mongoose.model('Users', {
     name: {
         type: String,
@@ -173,7 +174,12 @@ const Users = mongoose.model('Users', {
         type: String,
     },
     cartData: {
-        type: Object,
+        type: [{ productId: Number, option: String, quantity: Number }],
+        default: []
+    },
+    history: {
+        type: [Number],
+        default: []
     },
     date: {
         type: Date,
@@ -187,15 +193,10 @@ app.post('/signup', async (req, res) => {
     if (check) {
         return res.status(400).json({ success: false, errors: "Email already exists" })
     }
-    let cart = {};
-    for (let i = 0; i < 300; i++) {
-        cart[i] = 0;
-    }
     const user = new Users({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        cartData: cart,
     })
     await user.save();
     const data = {
@@ -210,6 +211,16 @@ app.post('/signup', async (req, res) => {
 //login
 app.post('/login', async (req, res) => {
     let user = await Users.findOne({ email: req.body.email });
+
+    Product.countDocuments({})
+        .then(count => {
+            console.log(`Total number of products: ${count}`);
+        })
+        .catch(err => {
+            // Handle the error
+            console.error(err);
+        });
+
     if (user) {
         const passCompare = req.body.password === user.password;
         if (passCompare) {

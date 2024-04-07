@@ -35,7 +35,6 @@ const CartItems = (props) => {
         //and Update the shopping cart
         editCart(productId, option, parseInt(event.target.value));
         setQuantity(parseInt(event.target.value));
-        window.location.href = '/cart';
     }
 
     const generateQuantityOptions = () => {
