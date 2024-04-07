@@ -23,28 +23,29 @@ const ShopContextProvider = (props) => {
             }).then((response) => response.json())
                 .then((data) => setCartItems(data));
         }
-        console.log(cartItems);
     }, [])
 
 
     const addToCart = (Id, productOption, askedQuantity) => {
-        //setCartItems(() => {
-        //    let tmp = cartItems;
-        //    if (tmp.length === 0) {
-        //        tmp.push({ productId: Id, option: productOption, quantity: askedQuantity });
-        //        return tmp;
-        //    } else {
-        //        for (let i = 0; i < tmp.length; i++) {
-        //            if (tmp[i].productId === Id && tmp[i].option === productOption) {
-        //                tmp[i].quantity += askedQuantity;
-        //                return tmp;
-        //            }
-        //        }
-        //        tmp.push({ productId: Id, option: productOption, quantity: askedQuantity });
-        //        return tmp;
-        //    }
-        //})
-        //console.log(cartItems);
+        setCartItems(prevCartItems => {
+            let updatedCartItems = [...prevCartItems]; // Create a new array based on the previous cartItems
+            if (updatedCartItems.length === 0) {
+                updatedCartItems.push({ productId: Id, option: productOption, quantity: askedQuantity });
+            } else {
+                let itemFound = false;
+                for (let i = 0; i < updatedCartItems.length; i++) {
+                    if (updatedCartItems[i].productId === Id && updatedCartItems[i].option === productOption) {
+                        updatedCartItems[i].quantity += askedQuantity;
+                        itemFound = true;
+                        break;
+                    }
+                }
+                if (!itemFound) {
+                    updatedCartItems.push({ productId: Id, option: productOption, quantity: askedQuantity });
+                }
+            }
+            return updatedCartItems;
+        });
 
         if (localStorage.getItem('token')) {
             fetch('http://localhost:4000/addtocart', {
@@ -56,26 +57,31 @@ const ShopContextProvider = (props) => {
                 },
                 body: JSON.stringify({ "productId": Id, "option": productOption, "quantity": askedQuantity }),
             })
-                .then((response) => response.json())
-                .then((data) => console.log(data));
+                .then((response) => console.log(response))
         }
     }
 
     const editCart = (Id, productOption, askedQuantity) => {
-        //setCartItems((prevCartItems) => {
-        //    let tmp = [...prevCartItems];
-        //    if (tmp.length === 0) {
-        //        return tmp;
-        //    } else {
-        //        for (let i = 0; i < tmp.length; i++) {
-        //            if (tmp[i].productId === Id && tmp[i].option === productOption) {
-        //                tmp[i].quantity = askedQuantity;
-        //                return tmp;
-        //            }
-        //        }
-        //        return tmp;
-        //    }
-        //})
+        setCartItems(prevCartItems => {
+            let updatedCartItems = [...prevCartItems]; // Create a new array based on the previous cartItems
+
+            if (updatedCartItems.length === 0) {
+                updatedCartItems.push({ productId: Id, option: productOption, quantity: askedQuantity });
+            } else {
+                let itemFound = false;
+                for (let i = 0; i < updatedCartItems.length; i++) {
+                    if (updatedCartItems[i].productId === Id && updatedCartItems[i].option === productOption) {
+                        updatedCartItems[i].quantity = askedQuantity;
+                        itemFound = true;
+                        break;
+                    }
+                }
+                if (!itemFound) {
+                    updatedCartItems.push({ productId: Id, option: productOption, quantity: askedQuantity });
+                }
+            }
+            return updatedCartItems;
+        });
 
         if (localStorage.getItem('token')) {
             fetch('http://localhost:4000/editcart', {
@@ -87,12 +93,16 @@ const ShopContextProvider = (props) => {
                 },
                 body: JSON.stringify({ "productId": Id, "option": productOption, "quantity": askedQuantity }),
             })
-                .then((response) => response.json())
-                .then((data) => console.log(data));
+                .then((response) => console.log(response))
         }
     }
 
     const removeitem = (Id, productOption) => {
+        setCartItems(prevCartItems => {
+            const updatedCartItems = prevCartItems.filter(item => item.productId !== Id || item.option !== productOption);
+            return updatedCartItems;
+        });
+
         if (localStorage.getItem('token')) {
             fetch('http://localhost:4000/removecartitem', {
                 method: 'POST',
@@ -103,14 +113,21 @@ const ShopContextProvider = (props) => {
                 },
                 body: JSON.stringify({ "productId": Id, "option": productOption }),
             })
-                .then((response) => response.json())
-                .then((data) => console.log(data));
+                .then((response) => console.log(response))
         }
+    }
+
+    const getTotalCartItems = () => {
+        let totalItem = 0;
+        for (const item in cartItems) {
+            totalItem += cartItems[item].quantity
+        }
+        return totalItem;
     }
 
     console.log(cartItems);
 
-    const contextValue = { all_product, cartItems, addToCart, editCart, removeitem };
+    const contextValue = { all_product, cartItems, addToCart, editCart, removeitem, getTotalCartItems };
 
     return (
         <ShopContext.Provider value={contextValue}>

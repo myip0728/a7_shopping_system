@@ -74,6 +74,11 @@ const ProductDisplay = (props) => {
         setQuantity(newQuantity);
     };
 
+    const handleAddToCart = () => {
+        addToCart(product.id, selectedOption, parseInt(quantity))
+        setQuantity(0);
+    }
+
     return (
         <div className="productdisplay">
             <div className="productdisplay-left">
@@ -156,7 +161,7 @@ const ProductDisplay = (props) => {
                 </div>
                 {/*Render based on whether the quantity the user choose is not available*/}
                 {addToCartAvailable === true ?
-                    <div className='add-to-cart-active' onClick={() => { addToCart(product.id, selectedOption, parseInt(quantity)) }}>Add to Cart</div> :
+                    <div className='add-to-cart-active' onClick={handleAddToCart}>Add to Cart</div> :
                     <div className='add-to-cart-inactive'>Sorry, the product is not available</div>}
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>

@@ -53,10 +53,15 @@ const CartItems = (props) => {
             <div className="cartitem-right">
                 <h1>{name}</h1>
                 <p>{option_type}: {option}</p>
-                <div className='cartitem-prices'>
-                    <div className='cartitem-price-old'>${old_price}</div>
-                    <div className='cartitem-price-new'>${new_price}</div>
-                </div>
+                {new_price !== old_price ?
+                    <div className='cartitem-prices'>
+                        <div className='cartitem-price-old'>${old_price}</div>
+                        <div className='cartitem-price-new'>${new_price}</div>
+                    </div> :
+                    <div className='cartitem-prices'>
+                        <div className='cartitem-price-new'>${new_price}</div>
+                    </div>
+                }
                 <p>Quantity: </p>
                 <form>
                     <select value={quantity} onChange={handleQuantityChange}>

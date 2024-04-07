@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import userprofile_icon from '../Assets/userprofile.png'
 import search_icon from '../Assets/search.png'
 import { Link, useLocation } from 'react-router-dom'
+import { ShopContext } from '../../Context/ShopContext'
 
 export const Navbar = () => {
     const location = useLocation();
     const [menu, setmenu] = useState("home");
+    const { getTotalCartItems } = useContext(ShopContext);
 
     React.useEffect(() => {
         if (location.pathname.includes('/headphone')) {
@@ -43,10 +45,10 @@ export const Navbar = () => {
                     <Link to='/search'><img src={search_icon} alt="" /></Link>
                     <Link to='/userpage'><img src={userprofile_icon} alt="" /></Link>
                     <Link to='/cart'><img src={cart_icon} alt="" /></Link>
-                    <div className="nav-cart-count">0</div>
+                    <div className="nav-cart-count">{getTotalCartItems()}</div>
                     {localStorage.getItem('token')
-                    ?<button onClick={()=>{localStorage.removeItem('token');window.location.replace('/')}}>Logout</button>
-                    :<Link to='/login'><button>Login</button></Link>}
+                        ? <button onClick={() => { localStorage.removeItem('token'); window.location.replace('/') }}>Logout</button>
+                        : <Link to='/login'><button>Login</button></Link>}
                 </div>
             </div>
         </div>
