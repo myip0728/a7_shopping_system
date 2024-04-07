@@ -336,15 +336,34 @@ app.post('/removecartitem', fetchUser, async (req, res) => {
     } else {
         const result = userData.cartData.filter(item => !(item.productId === req.body.productId && item.option === req.body.option));
         await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: result });
-
+        res.send("removed");
     }
 });
 
-//get cartdata after login
-app.post('/getcart', fetchUser, async (req, res) => {
-    console.log("GetCart");
+app.post('/updateHistory', fetchUser, async (req, res) => {
+    console.log("updated", req.body.productId);
     let userData = await Users.findOne({ _id: req.user.id });
-    res.json(userData.cartData);
+
+    const isVisited = userData.history.includes(req.body.productId);
+    if (!isVisited) {
+        const result = userData.history;
+        result.push(req.body.productId);
+        if (result.length > 5) {
+            result.shift();
+        }
+        console.log(result);
+        await Users.findOneAndUpdate({ _id: req.user.id }, { history: result });
+    } else {
+        res.send("visited");
+    }
+
+})
+
+//get user data details
+app.post('/getuser', fetchUser, async (req, res) => {
+    console.log("GetUser");
+    let userData = await Users.findOne({ _id: req.user.id });
+    res.json(userData);
 })
 
 app.listen(port, (error) => {

@@ -1,8 +1,11 @@
 import React from 'react'
+import './CSS/UserPage.css'
 
 const UserPage = () => {
     return (
-        <div>UserPage</div>
+        <div>
+
+        </div>
     )
 }
 

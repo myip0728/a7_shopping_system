@@ -4,7 +4,14 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
     const [all_product, setAll_product] = useState([]);
+
+    // Getting user data
     const [cartItems, setCartItems] = useState([]);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [history, setHistory] = useState([]);
+    const [date, setDate] = useState("");
 
     useEffect(() => {
         fetch('http://localhost:4000/allproducts')
@@ -12,7 +19,7 @@ const ShopContextProvider = (props) => {
             .then((data) => setAll_product(data))
 
         if (localStorage.getItem('token')) {
-            fetch('http://localhost:4000/getcart', {
+            fetch('http://localhost:4000/getuser', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -21,7 +28,14 @@ const ShopContextProvider = (props) => {
                 },
                 body: "",
             }).then((response) => response.json())
-                .then((data) => setCartItems(data));
+                .then((user) => {
+                    setUsername(user.name);
+                    setCartItems(user.cartData);
+                    setEmail(user.email);
+                    setPassword(user.password);
+                    setHistory(user.history);
+                    setDate(user.date);
+                });
         }
     }, [])
 
@@ -125,9 +139,31 @@ const ShopContextProvider = (props) => {
         return totalItem;
     }
 
+    const updateHistory = (Id) => {
+        setHistory((prevHistory) => {
+            const updatedHistory = [...prevHistory, Id];
+            if (updatedHistory.length > 5) {
+                updatedHistory.shift();
+            }
+            return updatedHistory;
+        })
+
+        if (localStorage.getItem('token')) {
+            fetch('http://localhost:4000/updateHistory', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'token': `${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ "productId": Id }),
+            })
+                .then((response) => console.log(response))
+        }
+    }
     console.log(cartItems);
 
-    const contextValue = { all_product, cartItems, addToCart, editCart, removeitem, getTotalCartItems };
+    const contextValue = { all_product, cartItems, username, email, password, history, date, addToCart, editCart, removeitem, getTotalCartItems, updateHistory };
 
     return (
         <ShopContext.Provider value={contextValue}>
