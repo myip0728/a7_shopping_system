@@ -163,7 +163,7 @@ app.get('/allproducts', async (req, res) => {
 
 //User data schema
 const Users = mongoose.model('Users', {
-    name: {
+    username: {
         type: String,
         require: true,
     },
@@ -184,6 +184,18 @@ const Users = mongoose.model('Users', {
         type: [Number],
         default: []
     },
+    address: {
+        type: { room: String, floor: String, building: String, area: String, district: String, city: String },
+        default: { room: "", floor: "", building: "", area: "", district: "", city: "" }
+    },
+    name: {
+        type: String,
+        default: ""
+    },
+    mobile: {
+        type: Number,
+        default: -1
+    },
     date: {
         type: Date,
         default: Date.now,
@@ -197,7 +209,7 @@ app.post('/signup', async (req, res) => {
         return res.status(400).json({ success: false, errors: "Email already exists" })
     }
     const user = new Users({
-        name: req.body.username,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
     })
@@ -248,7 +260,7 @@ app.post('/removeuser', async (req, res) => {
     console.log("Removed the user.");
     res.json({
         success: true,
-        enail: req.body.email
+        email: req.body.email
     })
 })
 
@@ -351,7 +363,6 @@ app.post('/updateHistory', fetchUser, async (req, res) => {
         if (result.length > 5) {
             result.shift();
         }
-        console.log(result);
         await Users.findOneAndUpdate({ _id: req.user.id }, { history: result });
     } else {
         res.send("visited");
@@ -364,6 +375,34 @@ app.post('/getuser', fetchUser, async (req, res) => {
     console.log("GetUser");
     let userData = await Users.findOne({ _id: req.user.id });
     res.json(userData);
+})
+
+app.post('/updateAddress', fetchUser, async (req, res) => {
+    console.log("update address");
+    const result = {
+        room: req.body.room,
+        floor: req.body.floor,
+        building: req.body.building,
+        area: req.body.area,
+        district: req.body.district,
+        city: req.body.city
+    }
+    await Users.findOneAndUpdate({ _id: req.user.id }, { address: result });
+    res.send("updated");
+})
+
+app.post('/updatemobile', fetchUser, async (req, res) => {
+    console.log("update mobile");
+    const result = req.body.mobile
+    await Users.findOneAndUpdate({ _id: req.user.id }, { mobile: result });
+    res.send("updated");
+})
+
+app.post('/updatename', fetchUser, async (req, res) => {
+    console.log("update name");
+    const result = req.body.name
+    await Users.findOneAndUpdate({ _id: req.user.id }, { name: result });
+    res.send("updated");
 })
 
 app.listen(port, (error) => {
