@@ -1,11 +1,11 @@
-const port=4000;
-const express=require("express");
-const app=express();
-const mongoose=require("mongoose");
-const jwt=require("jsonwebtoken");
-const multer=require("multer");
-const path=require("path");
-const cors=require("cors");
+const port = 4000;
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const multer = require("multer");
+const path = require("path");
+const cors = require("cors");
 const { stringify } = require("querystring");
 
 app.use(express.json());
@@ -15,248 +15,286 @@ app.use(cors());
 mongoose.connect("mongodb+srv://greatstackdev:a7shop@cluster0.mwq7kfw.mongodb.net/A7_SHOPPING_SYSTEM");
 
 //API creation
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("Express App is running")
 })
 
 //Image storage engine
-const storage=multer.diskStorage({
+const storage = multer.diskStorage({
     destination: './upload/images',
-    filename:(req,file,cb)=>{
-        return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    filename: (req, file, cb) => {
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
 })
 
-const upload=multer({storage:storage})
+const upload = multer({ storage: storage })
 
 //creating upload endpoint for images
-app.use('/images',express.static('upload/images'))
+app.use('/images', express.static('upload/images'))
 
-app.post("/upload",upload.single('product'),(req,res)=>{
+app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
-        success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
+        success: 1,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
 
 //schema for creating products
-const Product=mongoose.model("Product",{
-    id:{
-        type:Number,
-        required:true,
+const Product = mongoose.model("Product", {
+    id: {
+        type: Number,
+        required: true,
     },
-    name:{
-        type:String,
-        required:true,
+    name: {
+        type: String,
+        required: true,
     },
-    image:{
-        type:String,
-        required:true
+    category: {
+        type: String,
+        required: true,
     },
-    category:{
-        type:String,
-        required:true,
+    images: {
+        type: [String],
+        required: true
     },
-    new_price:{
-        type:Number,
-        required:true,
+    new_price: {
+        type: Number,
+        required: true,
     },
-    old_price:{
-        type:Number,
-        required:true,
+    old_price: {
+        type: Number,
+        required: true,
     },
-    date:{
-        type:Date,
-        default:Date.now,
+    option_type: {
+        type: String,
+        required: false
     },
-    available:{
-        type:Boolean,
-        default:true,
+    option: {
+        type: [String],
+        required: false
     },
+    tag: {
+        type: [String],
+        required: true
+    },
+    no_order: {
+        type: Number,
+        default: 0,
+    },
+    no_stock: {
+        type: Number,
+        required: true
+    },
+    rating: {
+        type: Number,
+        default: 5
+    },
+    short_description: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    comment: {
+        type: [{ username: String, text: String }],
+        default: []
+    },
+    update_time: {
+        type: Date,
+        default: Date.now,
+    }
 })
 
 //add product
-app.post('/addproduct',async (req,res)=>{
+app.post('/addproduct', async (req, res) => {
     //id automatically generated in database
-    let products=await Product.find({});
+    let products = await Product.find({});
     let id;
-    if(products.length>0){
-        let last_product_array=products.slice(-1);
-        let last_product=last_product_array[0];
-        id=last_product.id+1;
+    if (products.length > 0) {
+        let last_product_array = products.slice(-1);
+        let last_product = last_product_array[0];
+        id = last_product.id + 1;
     }
-    else{
-        id=1;
+    else {
+        id = 1;
     }
-    const product=new Product({
-        id:id,
-        name:req.body.name,
-        image:req.body.image,
-        category:req.body.category,
-        new_price:req.body.new_price,
-        old_price:req.body.old_price,
+    const product = new Product({
+        id: id,
+        name: req.body.name,
+        category: req.body.category,
+        images: req.body.images,
+        new_price: req.body.new_price,
+        old_price: req.body.old_price,
+        option_type: req.body.option_type,
+        option: req.body.option,
+        tag: req.body.tag,
+        no_stock: req.body.no_stock,
+        short_description: req.body.short_description,
+        description: req.body.short_description,
     });
     console.log(product);
     await product.save();
     console.log("Saved");
     res.json({
-        success:true,
-        name:req.body.name,
+        success: true,
+        name: req.body.name,
     })
 })
 
 //remove product
-app.post('/removeproduct', async (req,res)=>{
-    await Product.findOneAndDelete({id:req.body.id});
+app.post('/removeproduct', async (req, res) => {
+    await Product.findOneAndDelete({ id: req.body.id });
     console.log("Removed a product.");
     res.json({
         success: true,
-        name:req.body.name
+        name: req.body.name
     })
 })
 
 //show all products
-app.get('/allproducts',async (req,res)=>{
-    let products=await Product.find({});
+app.get('/allproducts', async (req, res) => {
+    let products = await Product.find({});
     console.log("All products fetched.");
     res.send(products);
 })
 
 //add user 
-const Users = mongoose.model('Users',{
-    name:{
-        type:String,
+const Users = mongoose.model('Users', {
+    name: {
+        type: String,
     },
-    email:{
-        type:String,
-        unique:true,
+    email: {
+        type: String,
+        unique: true,
     },
-    password:{
-        type:String,
+    password: {
+        type: String,
     },
-    cartData:{
-        type:Object,
+    cartData: {
+        type: Object,
     },
-    date:{
-        type:Date,
-        default:Date.now,
+    date: {
+        type: Date,
+        default: Date.now,
     }
 })
 
 //signup
-app.post('/signup', async(req,res)=>{
-    let check = await Users.findOne({email : req.body.email});
-    if(check){
-        return res.status(400).json({success:false,errors:"Email already exists"})
+app.post('/signup', async (req, res) => {
+    let check = await Users.findOne({ email: req.body.email });
+    if (check) {
+        return res.status(400).json({ success: false, errors: "Email already exists" })
     }
     let cart = {};
-    for (let i = 0; i < 300; i++){
+    for (let i = 0; i < 300; i++) {
         cart[i] = 0;
     }
     const user = new Users({
-        name : req.body.name ,
-        email : req.body.email ,
-        password : req.body.password,
-        cartData : cart,
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        cartData: cart,
     })
     await user.save();
     const data = {
-        user:{
-            id:user.id,
+        user: {
+            id: user.id,
         }
     }
     const token = jwt.sign(data, 'secret_Tech');
-    res.json({success:true, token})
-}) 
+    res.json({ success: true, token })
+})
 
 //login
-app.post('/login',async(req,res) =>{
-    let user = await Users.findOne({email:req.body.email});
-    if(user){
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({ email: req.body.email });
+    if (user) {
         const passCompare = req.body.password === user.password;
-        if(passCompare){
-            const data={
-                user:{
-                    id:user.id
+        if (passCompare) {
+            const data = {
+                user: {
+                    id: user.id
                 }
             }
-            const token=jwt.sign(data,'secret_Tech');
-            res.json({success:true,token});
+            const token = jwt.sign(data, 'secret_Tech');
+            res.json({ success: true, token });
         }
-        else{
-            res.json({success:false,errors:'Wrong password! Please try again.'});
+        else {
+            res.json({ success: false, errors: 'Wrong password! Please try again.' });
         }
     }
-    else{
-        res.json({success:false,errors:"Wrong email! Please try again."})
+    else {
+        res.json({ success: false, errors: "Wrong email! Please try again." })
     }
 })
 
 //show all users
-app.get('/alluser',async (req,res)=>{
-    let users=await Users.find({});
+app.get('/alluser', async (req, res) => {
+    let users = await Users.find({});
     console.log("All users fetched.");
     res.send(users);
 })
 
 //remove user
-app.post('/removeuser', async (req,res)=>{
-    await Users.findOneAndDelete({email:req.body.email});
+app.post('/removeuser', async (req, res) => {
+    await Users.findOneAndDelete({ email: req.body.email });
     console.log("Removed the user.");
     res.json({
         success: true,
-        enail:req.body.email
+        enail: req.body.email
     })
 })
 
 //create middlware to fetch user
-    const fetchUser=async(req,res,next)=>{
-        const token=req.header('token');
-        if(!token){
-            res.status(401).send({errors:"Please authenticate using valid token"})
-        }
-        else{
-            try{
-                const data=jwt.verify(token,'secret_ecom');
-                req.user=data.user;
-                next();
-            }catch(error){
-                res.status(401).send({errors:"Please authericate using a valid token"})
-            }
+const fetchUser = async (req, res, next) => {
+    const token = req.header('token');
+    if (!token) {
+        res.status(401).send({ errors: "Please authenticate using valid token" })
+    }
+    else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({ errors: "Please authericate using a valid token" })
         }
     }
+}
 
 //add product in cartdata
-app.post('/addtocart',fetchUser,async (req,res)=>{
-    console.log("added",req.body.itemId);
-    let userData=await Users.findOne({_id:req.user.id});
-    userData.cartData[req.body.itemId]+=1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+app.post('/addtocart', fetchUser, async (req, res) => {
+    console.log("added", req.body.itemId);
+    let userData = await Users.findOne({ _id: req.user.id });
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Added")
 })
 
 //remove product in cartdata
-app.post('/removefromcart',fetchUser,async(req,res)=>{
-    console.log("removed",req.body.itemId);
-    let userData=await Users.findOne({_id:req.user.id});
-    if(userData.cartData[req.body.itemId]>0)
-    userData.cartData[req.body.itemId]-=1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    console.log("removed", req.body.itemId);
+    let userData = await Users.findOne({ _id: req.user.id });
+    if (userData.cartData[req.body.itemId] > 0)
+        userData.cartData[req.body.itemId] -= 1;
+    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Removed")
 })
 
 //get cartdata after login
-app.post('/getcart',fetchUser,async(req,res)=>{
+app.post('/getcart', fetchUser, async (req, res) => {
     console.log("GetCart");
-    let userData=await Users.findOne({_id:req.user.id});
+    let userData = await Users.findOne({ _id: req.user.id });
     res.json(userData.cartData);
 })
 
-app.listen(port,(error)=>{
-    if(!error){
-        console.log("Server Running on Port "+port)
+app.listen(port, (error) => {
+    if (!error) {
+        console.log("Server Running on Port " + port)
     }
-    else{
-        console.log("Error: "+error)
+    else {
+        console.log("Error: " + error)
     }
 })

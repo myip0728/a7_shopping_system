@@ -1,58 +1,17 @@
 import React, { createContext, useEffect, useState } from "react";
-import all_product from "../Components/Assets/all_product";
-
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => { //This function is for generating default cart for frontend development
-    //This function can be used to create shopping cart data for new user in backend
-    let cart = [];
-    const len = all_product.length;
-    for (let i = 1; i < len; i++) {
-        if (all_product[i - 1].option.length > 0) {
-            let tmp1 = [];
-            for (let j = 0; j < all_product[i - 1].option.length; j++) {
-                let tmp2 = {
-                    option: null,
-                    quantity: 0
-                };
-                tmp2.option = all_product[i - 1].option[j];
-                tmp1.push(tmp2);
-            }
-            cart[i] = tmp1;
-        } else {
-            cart.push(
-                [{
-                    option: null,
-                    quantity: 0
-                }])
-        }
-    }
-    if (all_product[len - 1].option.length > 0) {
-
-        let tmp1 = [];
-        for (let j = 0; j < all_product[len - 1].option.length; j++) {
-            let tmp2 = {
-                option: null,
-                quantity: 0
-            };
-            tmp2.option = all_product[len - 1].option[j];
-            tmp1.push(tmp2);
-        }
-        cart.push(tmp1);
-    } else {
-        cart.push(
-            [{
-                option: null,
-                quantity: 0
-            }])
-    }
-    cart[1][1].quantity = 9;
-    return cart;
-};
 
 const ShopContextProvider = (props) => {
+    const [all_product, setAll_product] = useState([]);
+    //const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [cartItems, setCartItems] = useState([]);
 
-    const [cartItems, setCartItems] = useState(getDefaultCart());
+    useEffect(() => {
+        fetch('http://localhost:4000/allproducts')
+            .then((response) => response.json())
+            .then((data) => setAll_product(data))
+    }, [])
 
     useEffect(() => {
 
@@ -70,6 +29,52 @@ const ShopContextProvider = (props) => {
         }
     }, [])
 
+    const getDefaultCart = () => { //This function is for generating default cart for frontend development
+        //This function can be used to create shopping cart data for new user in backend
+        let cart = [];
+        const len = all_product.length + 1;
+        for (let i = 1; i < len; i++) {
+            if (all_product[i - 1].option.length > 0) {
+                let tmp1 = [];
+                for (let j = 0; j < all_product[i - 1].option.length; j++) {
+                    let tmp2 = {
+                        option: null,
+                        quantity: 0
+                    };
+                    tmp2.option = all_product[i - 1].option[j];
+                    tmp1.push(tmp2);
+                }
+                cart[i] = tmp1;
+            } else {
+                cart.push(
+                    [{
+                        option: null,
+                        quantity: 0
+                    }])
+            }
+        }
+        if (all_product[len - 1].option.length > 0) {
+
+            let tmp1 = [];
+            for (let j = 0; j < all_product[len - 1].option.length; j++) {
+                let tmp2 = {
+                    option: null,
+                    quantity: 0
+                };
+                tmp2.option = all_product[len - 1].option[j];
+                tmp1.push(tmp2);
+            }
+            cart.push(tmp1);
+        } else {
+            cart.push(
+                [{
+                    option: null,
+                    quantity: 0
+                }])
+        }
+        cart[1][1].quantity = 9;
+        return cart;
+    };
     const addToCart = (productId, productOption, askedQuantity) => {
         setCartItems(() => {
             let tmp = cartItems;
