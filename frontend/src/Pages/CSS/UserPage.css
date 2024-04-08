@@ -1,0 +1,40 @@
+.userprofile-main {}
+
+.user-details {}
+
+.user-details h1 {}
+
+.user-details-left {}
+
+.user-details-right {}
+
+.user-History {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+}
+
+.user-recommendation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+    margin-bottom: 100px;
+}
+
+.user-recommendation h1,
+.user-History h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+    border-bottom: 5px solid #252525;
+}
+
+.item-display {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}

@@ -4,7 +4,7 @@ import cross_icon from '../Components/Assets/cart_cross_icon.png'
 import CartItems from '../Components/CartItems/CartItems'
 import { ShopContext } from '../Context/ShopContext'
 import { Link } from 'react-router-dom'
-import { Checkout } from './Checkout.jsx'
+import Checkout from './Checkout.jsx'
 
 
 const Cart = () => {
@@ -67,7 +67,7 @@ const Cart = () => {
     const goToCheckout = () => {
         <Link to='/checkout'><Checkout checkoutItems={selectedItems}></Checkout></Link>
     };
-    
+
     return (
         <div>
             {localStorage.getItem('token')

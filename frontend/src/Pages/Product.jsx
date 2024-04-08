@@ -12,10 +12,10 @@ const Product = () => {
     const product = all_product.find((e) => e.id === Number(productId))
 
     useEffect(() => {
-        const isVisited = history.includes(productId);
+        const isVisited = history.includes(parseInt(productId));
 
         if (!isVisited) {
-            updateHistory(productId);
+            updateHistory(parseInt(productId));
             console.log(history);
         }
     })
