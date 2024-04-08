@@ -16,8 +16,18 @@ const Checkout = () => {
                 ?
                 <div className="checkout-main">
                     <h1>CHECKOUT</h1>
-                    <div className="cart-container">
-                      ...
+                    <div className="checkout-container">
+                        <div className='checkout-left'>
+                            <div className='delivery'>
+                                ...
+                            </div>
+                            <div className='product_summary'>
+                                ...
+                            </div>
+                        </div>
+                        <div className='checkout-right'>
+                            ...
+                        </div>
                     </div>
                 </div> :
                 <div className="cart-main-not-login">
