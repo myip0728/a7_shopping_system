@@ -50,63 +50,74 @@ const UserPage = () => {
 
     const handleAddressChange = (e) => {
         const { id, value } = e.target;
-        setNewAddress((prevAddress) => ({ ...prevAddress, [id]: value }));
-
-        //Sending update request to server through shopcontext
+        setNewAddress((prevAddress) => ({ ...prevAddress, [id]: value }))
     };
 
     const handleNameChange = (e) => {
         setNewName(e.target.value);
-        //Sending update request to server through shopcontext
     };
 
     const handleMobileChange = (e) => {
         setNewMobile(e.target.value);
-        //Sending update request to server through shopcontext
     };
+
+    const UpdateUserDetails = () => {
+
+
+
+        setEdit(false);
+    }
 
     return (
         <div>
             <div className="userprofile-main">
-                <div className='user-profile heading'>
+                <div className='user-profile-heading'>
                     <h1>User Profile</h1>
                     {!edit ?
-                        <div className='editbutton' onClick={() => setEdit(true)} > Edit Address, Name or Mobile</div> :
-                        <div className='editbutton' onClick={() => setEdit(false)}> Done Edit</div>
+                        <button onClick={() => setEdit(true)} > Edit Address, Name or Mobile</button> :
+                        <button onClick={UpdateUserDetails}> Done Edit</button>
                     }
                 </div>
                 <div className="user-details">
                     <div className="user-details-left">
-                        <h1>Username</h1>
-                        <p>{username}</p>
-                        <h1>Email</h1>
-                        <p>{email}</p>
-                        <h1>Password</h1>
-                        <p>{password}</p>
-                        <h1>Join Date</h1>
-                        <p>{date}</p>
+                        <div className="user-details-item">
+                            <h1>Username:</h1>
+                            <p>{username}</p>
+                        </div>
+                        <div className="user-details-item">
+                            <h1>Email:</h1>
+                            <p>{email}</p>
+                        </div>
+                        <div className="user-details-item">
+                            <h1>Password:</h1>
+                            <p>{password}</p>
+                        </div>
+                        <div className="user-details-item">
+                            <h1>Join Date:</h1>
+                            <p>{date.substring(0, 10)}</p>
+                        </div>
                     </div>
                     <div className="user-details-right">
-                        <h1>Address</h1>
+                        <h1>Address:</h1>
                         <form>
-                            <label for="room">Room:</label>
+                            <label for="room">Room: </label>
                             <input type="text" id="room" value={newAddress.room} onChange={handleAddressChange} readOnly={!edit}></input>
-                            <label for="floor">floor:</label>
+                            <label for="floor">floor: </label>
                             <input type="text" id="floor" value={newAddress.floor} onChange={handleAddressChange} readOnly={!edit}></input>
-                            <label for="building">Building:</label>
+                            <label for="building">Building: </label>
                             <input type="text" id="building" value={newAddress.building} onChange={handleAddressChange} readOnly={!edit}></input>
-                            <label for="area">Area:</label>
+                            <label for="area">Area: </label>
                             <input type="text" id="area" value={newAddress.area} onChange={handleAddressChange} readOnly={!edit}></input>
-                            <label for="district">District:</label>
+                            <label for="district">District: </label>
                             <input type="text" id="district" value={newAddress.district} onChange={handleAddressChange} readOnly={!edit}></input>
-                            <label for="city">City:</label>
+                            <label for="city">City: </label>
                             <input type="text" id="city" value={newAddress.city} onChange={handleAddressChange} readOnly={!edit}></input>
                         </form>
-                        <h1>Name</h1>
+                        <h1>Contact Name:</h1>
                         <form>
                             <input type="text" id="name" value={newName} onClick={handleNameChange} readOnly={!edit}></input>
                         </form>
-                        <h1>mobile</h1>
+                        <h1>Your Mobile Number:</h1>
                         <form>
                             <input type="text" id="mobile" value={newMobile} onClick={handleMobileChange} readOnly={!edit}></input>
                         </form>
@@ -115,7 +126,7 @@ const UserPage = () => {
                 <div className="user-History">
                     <h1>History</h1>
                     <div className='item-display'>
-                        {historyProduct.map((item, i) => {
+                        {historyProduct.reverse().map((item, i) => {
                             return <Item key={i} id={item.id} name={item.name} images={item.images} new_price={item.new_price} old_price={item.old_price} />
                         })}
                     </div>
@@ -129,7 +140,7 @@ const UserPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

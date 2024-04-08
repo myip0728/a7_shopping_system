@@ -1,12 +1,91 @@
-.userprofile-main {}
+.userprofile-main {
+    display: flex;
+    flex-direction: column;
+}
 
-.user-details {}
+.user-profile-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0px 40px;
+}
 
-.user-details h1 {}
+.user-profile-heading h1 {
+    margin: 0;
+    font-size: 50px;
+    border-bottom: 6px solid black;
+}
 
-.user-details-left {}
+.user-profile-heading button {
+    width: auto;
+    padding: 0px 20px;
+    margin-left: auto;
+    align-items: flex-end;
+    justify-self: center;
+    margin: 0px
+}
 
-.user-details-right {}
+.user-details {
+    display: flex;
+    padding: 50px;
+}
+
+.user-details h1 {
+    font-size: 27px;
+    text-decoration: underline;
+}
+
+.user-details-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-details-item h1 {
+    margin-right: 10px;
+    /* Adjust spacing between h1 and p */
+}
+
+.user-details-item p {
+    margin: 0;
+    text-align: center;
+    font-size: 23px;
+}
+
+.user-details-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 150px;
+    gap: 50px
+}
+
+.user-details-right {
+    flex: 1;
+    margin-right: 150px
+}
+
+.user-details-right form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5px;
+    align-items: center;
+}
+
+.user-details-right label {
+    font-weight: 600;
+    font-size: 27px;
+    margin-right: 10px;
+}
+
+.user-details-right input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: poppins;
+    border-radius: 8px;
+    border: 2px solid #cdcdcd;
+}
 
 .user-History {
     display: flex;
