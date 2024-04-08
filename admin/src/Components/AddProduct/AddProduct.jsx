@@ -9,12 +9,13 @@ const AddProduct = () => {
   const [productDetails,setProductDetails]=useState({
     name:"",
     image:"",
-    category:"headphone",
+    category:"",
     new_price:"",
     old_price:"",
     tag:"",
     no_stock:"",
-    short_description:""
+    short_description:"",
+    description:""
   })
 
   const imageHandler=(e)=>{
@@ -63,8 +64,12 @@ const AddProduct = () => {
         <input value={productDetails.name} onChange={changeHandler} type="text" name='name' placeholder='Type here' />
       </div>
       <div className="addproduct-itemfield">
-        <p>Product Description</p>
+        <p>Short Description</p>
         <input value={productDetails.short_description} onChange={changeHandler} type="text" name='short_description' placeholder='Type here' />
+      </div>
+      <div className="addproduct-itemfield">
+        <p>Product Description</p>
+        <input value={productDetails.description} onChange={changeHandler} type="text" name='short_description' placeholder='Type here' />
       </div>
       <div className="addproduct-itemfield">
         <p>Tag</p>
@@ -94,6 +99,7 @@ const AddProduct = () => {
         </select>
       </div>
       <div className="addproduct-itemfield">
+        <p>Upload Image</p>
         <label htmlFor="file-input">
         <img src={image?URL.createObjectURL(image):upload} className='add-product-thumnail-img' alt="" />
         </label>
