@@ -9,7 +9,7 @@ const AddProduct = () => {
   const [productDetails,setProductDetails]=useState({
     name:"",
     image:"",
-    category:"",
+    category:"headphone",
     new_price:"",
     old_price:"",
     tag:"",
@@ -35,7 +35,7 @@ const AddProduct = () => {
     formData.append('product',image);
     await fetch('http://localhost:4000/upload',{
       method:'POST',
-      header:{
+      headers:{
         Accept:'application/json',
       },
       body:formData,
@@ -69,7 +69,7 @@ const AddProduct = () => {
       </div>
       <div className="addproduct-itemfield">
         <p>Product Description</p>
-        <input value={productDetails.description} onChange={changeHandler} type="text" name='short_description' placeholder='Type here' />
+        <input value={productDetails.description} onChange={changeHandler} type="text" name='description' placeholder='Type here' />
       </div>
       <div className="addproduct-itemfield">
         <p>Tag</p>
