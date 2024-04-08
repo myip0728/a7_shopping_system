@@ -11,7 +11,10 @@ const AddProduct = () => {
     image:"",
     category:"headphone",
     new_price:"",
-    old_price:""
+    old_price:"",
+    tag:"",
+    no_stock:"",
+    short_description:""
   })
 
   const imageHandler=(e)=>{
@@ -59,15 +62,27 @@ const AddProduct = () => {
         <p>Product Name</p>
         <input value={productDetails.name} onChange={changeHandler} type="text" name='name' placeholder='Type here' />
       </div>
+      <div className="addproduct-itemfield">
+        <p>Product Description</p>
+        <input value={productDetails.short_description} onChange={changeHandler} type="text" name='short_description' placeholder='Type here' />
+      </div>
+      <div className="addproduct-itemfield">
+        <p>Tag</p>
+        <input value={productDetails.tag} onChange={changeHandler} type="text" name='tag' placeholder='Type here' />
+      </div>
       <div className="addproduct-price">
         <div className="addproduct-itemfield">
           <p>Price</p>
-          <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price" placeholder='Type here' />
+          <input value={productDetails.old_price} onChange={changeHandler} type="number" name="old_price" placeholder='Type here' />
         </div>
         <div className="addproduct-itemfield">
           <p>Offer Price</p>
-          <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price" placeholder='Type here' />
+          <input value={productDetails.new_price} onChange={changeHandler} type="number" name="new_price" placeholder='Type here' />
         </div>
+      </div>
+      <div className="addproduct-itemfield">
+          <p>Number of stock</p>
+          <input value={productDetails.no_stock} onChange={changeHandler} type="number" name="no_stock" placeholder='Type here' />
       </div>
       <div className="addproduct-itemfield">
         <p>Product Category</p>
