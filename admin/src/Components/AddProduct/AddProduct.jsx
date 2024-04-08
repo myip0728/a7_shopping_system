@@ -1,12 +1,13 @@
 import React from 'react'
 import './AddProduct.css'
+import upload from '../../assets/upload.svg'
 
 
 const AddProduct = () => {
   return (
     <div className='add-product'>
       <div className="addproduct-itemfield">
-      <p>Product title</p>
+      <p>Product Name</p>
       <input type="text" name='name' placeholder='Type here' />
       </div>
       <div className="addproduct-price">
@@ -26,6 +27,13 @@ const AddProduct = () => {
           <option value="mouse">mouse</option>
         </select>
       </div>
+      <div className="addproduct-itemfield">
+        <label htmlFor="file-input">
+        <img src={upload} className='add-product-thumnail-img' alt="" />
+        </label>
+        <input type="file" name='image' id='file-input' hidden/>
+      </div>
+      <button className='addproduct-btn'>ADD</button>
     </div>
   )
   }
