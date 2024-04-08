@@ -2,12 +2,15 @@ import React, { useContext, useState } from 'react'
 import './CSS/Checkout.css'
 import CartItems from '../Components/CartItems/CartItems'
 import { ShopContext } from '../Context/ShopContext'
-//import Cart from './Cart.jsx'
+import { Link } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+import Checkout from './Checkout';
 
 
 const Checkout = () => {
     const { all_product } = useContext(ShopContext); //Getting all product details
     const { cartItems, removeitem } = useContext(ShopContext); //Getting Shopping CartItems
+    const [shouldNavigate, setShouldNavigate] = useState(false);
 
     const [address, setAddress] = useState({
         address: '',
@@ -111,6 +114,17 @@ const Checkout = () => {
         );
       };
 
+      const handleCheckOut = () => {
+        // Set the shouldNavigate state to true
+        setShouldNavigate(true);
+      };
+
+    
+    if (shouldNavigate) {
+        // Navigate the user to the checkout page
+        return <Navigate to="/checkout" />;
+    }
+    
     return (
         <div>
             {localStorage.getItem('token')
