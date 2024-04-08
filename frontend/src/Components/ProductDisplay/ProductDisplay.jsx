@@ -161,8 +161,8 @@ const ProductDisplay = (props) => {
                 </div>
                 {/*Render based on whether the quantity the user choose is not available*/}
                 {addToCartAvailable === true ?
-                    <div className='add-to-cart-active' onClick={handleAddToCart}>Add to Cart</div> :
-                    <div className='add-to-cart-inactive'>Sorry, the product is not available</div>}
+                    <button className='add-to-cart-active' onClick={handleAddToCart}>Add to Cart</button> :
+                    <button className='add-to-cart-inactive'>Sorry, the product is not available</button>}
                 <p className="productdisplay-right-category"><span>Category: </span>{product.category}</p>
                 <p className="productdisplay-right-category"><span>Tag: </span>{renderTags()}</p>
                 <p className="productdisplay-right-category"><span>Product ID: </span>{product.id}</p>

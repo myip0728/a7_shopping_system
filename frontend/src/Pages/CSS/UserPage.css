@@ -78,8 +78,16 @@
     margin-right: 10px;
 }
 
-.user-details-right input[type="number"],
-.user-details-right input[type="text"] {
+.user-details-right-inactive {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: poppins;
+    border: none;
+    outline: none;
+}
+
+.user-details-right-active {
     width: 100%;
     padding: 10px;
     font-size: 20px;
