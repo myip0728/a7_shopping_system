@@ -39,6 +39,7 @@ const ListProduct = () => {
                   <p>{product.category}</p>
                   <img className='listproduct-remove-icon' src={cross_icon} alt="" />
             </div>
+            
           })}
         </div>
     </div>
