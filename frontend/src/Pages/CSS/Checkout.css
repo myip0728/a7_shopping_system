@@ -30,10 +30,7 @@
 
 .product_summary {
     margin-bottom: 20px;
-}
-
-.checkout-product {
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -52,17 +49,85 @@
     font-weight: bold;
 }
 
-button {
-    background-color: #007bff;
+.delivery_info button {
+    background-color: #D74444;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+.checkout-right button {
+    width: 444px;
+    padding: 0px 30px;
 }
+
+.checkout-summary {
+    width: 400px;
+    border: 1px solid rgb(179, 179, 179);
+    padding: 10px 20px;
+}
+
+.checkout-summary h1 {
+    margin: 20px 0px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.checkout-summary div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.checkout-summary-total p {
+    font-weight: 700;
+}
+
+.checkout-summary div p:first-child {
+    margin-right: auto;
+}
+
+.delivery_info form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+}
+
+.delivery_info label {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.edit-input-inactive {
+    width: 100%;
+    font-size: 15px;
+    font-family: poppins;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+}
+
+.edit-input-active {
+    width: 100%;
+    font-size: 15px;
+    font-family: poppins;
+    border-radius: 8px;
+    border: 2px solid #cdcdcd;
+    margin-top: 10px;
+}
+
+.delivery_info input[type="number"]::-webkit-inner-spin-button,
+.delivery_info input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.delivery_info input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
 
 /* Media queries for responsive design */
 @media (max-width: 768px) {

@@ -33,6 +33,7 @@
     padding: 0px 20px;
     flex-basis: auto;
     margin-bottom: 30px;
+    width: 1180px;
 }
 
 .cart-right {
@@ -78,7 +79,7 @@
 }
 
 .cart-right button {
-    width: 440px;
+    width: 444px;
     padding: 0px 30px;
 }
 

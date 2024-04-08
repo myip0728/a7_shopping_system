@@ -3,11 +3,12 @@ import './CSS/Cart.css'
 import cross_icon from '../Components/Assets/cart_cross_icon.png'
 import CartItems from '../Components/CartItems/CartItems'
 import { ShopContext } from '../Context/ShopContext'
-import { Link } from 'react-router-dom'
-import Checkout from './Checkout.jsx'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Cart = () => {
+    const navigate = useNavigate();
     const { all_product } = useContext(ShopContext); //Getting all product details
     const { cartItems, removeitem } = useContext(ShopContext); //Getting Shopping CartItems
     const [selectedItems, setSelectedItems] = useState([]);
@@ -64,8 +65,12 @@ const Cart = () => {
         }
     };
 
+    //const goToCheckout = () => {
+    //    <Link to='/checkout'><Checkout checkoutItems={selectedItems}></Checkout></Link>
+    //};
+
     const goToCheckout = () => {
-        <Link to='/checkout'><Checkout checkoutItems={selectedItems}></Checkout></Link>
+        navigate('/checkout', { state: { items: selectedItems, totalQuantity: totalQuantity, totalPrice: totalPrice } })
     };
 
     return (
