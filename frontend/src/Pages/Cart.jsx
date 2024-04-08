@@ -63,6 +63,10 @@ const Cart = () => {
         }
     };
 
+    const goToCheckout = () => {
+        <Link to='/checkout' checkoutItems={selectedItems}></Link>
+    };
+    
     return (
         <div>
             {localStorage.getItem('token')
@@ -96,7 +100,7 @@ const Cart = () => {
                                     <p>$ {totalPrice}</p>
                                 </div>
                             </div>
-                            <button>Check Out</button>
+                            <button onClick={goToCheckout}>Check Out</button>
                         </div>
                     </div>
                 </div> :
