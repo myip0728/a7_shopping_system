@@ -42,3 +42,15 @@ button:hover {
   background-color: #bc1010;
   color: white;
 }
+
+.Not-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 200px 0px;
+}
+
+.Not-login h1 {
+  font-size: 50px;
+  font-weight: 700;
+}

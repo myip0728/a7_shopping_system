@@ -187,7 +187,7 @@ const UserPage = () => {
                         </div>
                     </div>
                 </div> :
-                <div className="cart-main-not-login">
+                <div className="Not-login">
                     <h1>Seems like you haven't login, Let's login to see more</h1>
                 </div>
             }

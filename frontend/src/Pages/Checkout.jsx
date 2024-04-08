@@ -2,11 +2,12 @@ import React, { useContext, useState } from 'react'
 import './CSS/Checkout.css'
 import CartItems from '../Components/CartItems/CartItems'
 import { ShopContext } from '../Context/ShopContext'
-import { Navigate } from 'react-router-dom';
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const Checkout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { email, name, mobile, address, updateAddress, updateMobile, updateName } = useContext(ShopContext); //Getting all product, user details
   const [shouldNavigate, setShouldNavigate] = useState(false);
   const { items, totalQuantity, totalPrice } = location.state;
@@ -23,16 +24,17 @@ const Checkout = () => {
   const [newMobile, setNewMobile] = useState(mobile);
   const shippingFee = 10; // Example shipping fee, adjust according to your needs
 
-  const handleCheckOut = () => {
-    // Set the shouldNavigate state to true
-    setShouldNavigate(true);
+  const handlePayment = () => {
+
+    setShouldNavigate(true); // Set the shouldNavigate state to true
+
+    if (shouldNavigate) {
+      // Navigate the user to the checkout page
+      navigate('/payment', { state: { items: items } })
+    }
   };
 
 
-  if (shouldNavigate) {
-    // Navigate the user to the checkout page
-    return <Navigate to="/checkout" />;
-  }
 
   const UpdateUserDetails = () => {
     const roomInput = document.getElementById("room").value;
@@ -135,7 +137,7 @@ const Checkout = () => {
                   <p>$ {totalPrice}</p>
                 </div>
               </div>
-              <button>Continue to payment</button>
+              <button onClick={handlePayment}>Continue to payment</button>
             </div>
           </div>
         </div> :

@@ -17,6 +17,7 @@ import headphone_banner from './Components/Assets/headphone_banner.png';
 import laptop_banner from './Components/Assets/laptop_banner.png';
 import keyboard_banner from './Components/Assets/keyboard_banner.png';
 import mouse_banner from './Components/Assets/mouse_banner.png';
+import PaymentSuccess from './Pages/PaymentSuccess';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/checkout' element={<Checkout />}></Route>
           <Route path='/payment' element={<Payment />}></Route>
+          <Route path='/paymentsuccess' element={<PaymentSuccess />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<Signup />}></Route>
         </Routes>
