@@ -3,6 +3,7 @@ import './CSS/Cart.css'
 import cross_icon from '../Components/Assets/cart_cross_icon.png'
 import CartItems from '../Components/CartItems/CartItems'
 import { ShopContext } from '../Context/ShopContext'
+import { Link } from 'react-router-dom'
 
 
 const Cart = () => {
