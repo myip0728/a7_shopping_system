@@ -4,7 +4,7 @@ import { ShopContext } from '../Context/ShopContext'
 import Item from '../Components/Item/Item'
 
 const UserPage = () => {
-    const { all_product, username, email, password, history, date, address, name, mobile, updateAddress, updateMobile, updatedName } = useContext(ShopContext);
+    const { all_product, username, email, password, history, date, address, name, mobile, updateAddress, updateMobile, updateName } = useContext(ShopContext);
     const [historyProduct, setHistoryProduct] = useState([]);
     const [recommendProduct, setRecommendProduct] = useState([]);
     const [edit, setEdit] = useState(false);
@@ -20,7 +20,6 @@ const UserPage = () => {
     const [newMobile, setNewMobile] = useState(mobile);
 
     useEffect(() => {
-
         if (history.length !== 0) {
             const updatedHistoryProduct = history.map((productId) =>
                 all_product.find((product) => product.id === productId)
@@ -36,8 +35,7 @@ const UserPage = () => {
 
             const mostFrequentCategory = Object.keys(categoryCounts).reduce(
                 (a, b) => (categoryCounts[a] > categoryCounts[b] ? a : b)
-            );
-
+            )
             const recommendedProducts = all_product.filter(
                 (product) => product.category === mostFrequentCategory
             );
@@ -48,23 +46,33 @@ const UserPage = () => {
     }
         , [history, all_product]);
 
-    const handleAddressChange = (e) => {
-        const { id, value } = e.target;
-        setNewAddress((prevAddress) => ({ ...prevAddress, [id]: value }))
-    };
-
-    const handleNameChange = (e) => {
-        setNewName(e.target.value);
-    };
-
-    const handleMobileChange = (e) => {
-        setNewMobile(e.target.value);
-    };
-
     const UpdateUserDetails = () => {
+        const roomInput = document.getElementById("room").value;
+        const floorInput = document.getElementById("floor").value;
+        const buildingInput = document.getElementById("building").value;
+        const areaInput = document.getElementById("area").value;
+        const districtInput = document.getElementById("district").value;
+        const cityInput = document.getElementById("city").value;
+        const NameInput = document.getElementById("name").value;
+        const mobileInput = document.getElementById("mobile").value;
 
+        //Setting new input
+        setNewAddress({
+            room: roomInput,
+            floor: floorInput,
+            building: buildingInput,
+            area: areaInput,
+            district: districtInput,
+            city: cityInput
+        });
+        setNewName(NameInput);
+        setNewMobile(mobileInput);
 
+        updateAddress(roomInput, floorInput, buildingInput, areaInput, districtInput, cityInput);
+        updateName(NameInput);
+        updateMobile(newMobile);
 
+        //Setting the edit plane to be false
         setEdit(false);
     }
 
@@ -101,25 +109,25 @@ const UserPage = () => {
                         <h1>Address:</h1>
                         <form>
                             <label for="room">Room: </label>
-                            <input type="text" id="room" value={newAddress.room} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="room" value={!edit ? newAddress.room : null} readOnly={!edit}></input>
                             <label for="floor">floor: </label>
-                            <input type="text" id="floor" value={newAddress.floor} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="floor" value={!edit ? newAddress.floor : null} readOnly={!edit}></input>
                             <label for="building">Building: </label>
-                            <input type="text" id="building" value={newAddress.building} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="building" value={!edit ? newAddress.building : null} readOnly={!edit}></input>
                             <label for="area">Area: </label>
-                            <input type="text" id="area" value={newAddress.area} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="area" value={!edit ? newAddress.area : null} readOnly={!edit}></input>
                             <label for="district">District: </label>
-                            <input type="text" id="district" value={newAddress.district} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="district" value={!edit ? newAddress.district : null} readOnly={!edit}></input>
                             <label for="city">City: </label>
-                            <input type="text" id="city" value={newAddress.city} onChange={handleAddressChange} readOnly={!edit}></input>
+                            <input type="text" id="city" value={!edit ? newAddress.city : null} readOnly={!edit}></input>
                         </form>
                         <h1>Contact Name:</h1>
                         <form>
-                            <input type="text" id="name" value={newName} onClick={handleNameChange} readOnly={!edit}></input>
+                            <input type="text" id="name" value={!edit ? newName : null} readOnly={!edit}></input>
                         </form>
                         <h1>Your Mobile Number:</h1>
                         <form>
-                            <input type="text" id="mobile" value={newMobile} onClick={handleMobileChange} readOnly={!edit}></input>
+                            <input type="number" id="mobile" value={!edit ? newMobile : null} readOnly={!edit}></input>
                         </form>
                     </div>
                 </div>
