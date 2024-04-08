@@ -195,6 +195,23 @@ const ShopContextProvider = (props) => {
         }
     }
 
+    const updateName = (input_name) => {
+        setName(input_name);
+
+        if (localStorage.getItem('token')) {
+            fetch('http://localhost:4000/updatename', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'token': `${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: input_name }),
+            })
+                .then((response) => console.log(response))
+        }
+    }
+
     const updateMobile = (input_mobile) => {
         setMobile(input_mobile);
 
@@ -212,22 +229,6 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    const updateName = (input_name) => {
-        setName(input_name);
-
-        if (localStorage.getItem('token')) {
-            fetch('http://localhost:4000/updatename', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/form-data',
-                    'token': `${localStorage.getItem('token')}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name: input_name }),
-            })
-                .then((response) => console.log(response))
-        }
-    }
 
     const contextValue = { all_product, cartItems, username, email, password, history, date, name, mobile, address, addToCart, editCart, removeitem, getTotalCartItems, updateHistory, updateAddress, updateMobile, updateName };
 
