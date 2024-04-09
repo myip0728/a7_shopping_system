@@ -8,25 +8,50 @@ const UserPage = () => {
     const [historyProduct, setHistoryProduct] = useState([]);
     const [recommendProduct, setRecommendProduct] = useState([]);
     const [edit, setEdit] = useState(false);
-    const [newAddress, setNewAddress] = useState({
-        room: address.room,
-        floor: address.floor,
-        building: address.building,
-        area: address.area,
-        district: address.district,
-        city: address.city
+    const [newAddress, setNewAddress] = useState(() => {
+        const storedAddress = localStorage.getItem('newAddress');
+        if (storedAddress) {
+            return JSON.parse(storedAddress);
+        } else {
+            const initialAddress = {
+                room: address.room,
+                floor: address.floor,
+                building: address.building,
+                area: address.area,
+                district: address.district,
+                city: address.city,
+            };
+            localStorage.setItem('newAddress', JSON.stringify(initialAddress));
+            return initialAddress;
+        }
     })
-    const [newName, setNewName] = useState(name);
-    const [newMobile, setNewMobile] = useState(mobile);
+    const [newName, setNewName] = useState(() => {
+        const storedName = localStorage.getItem('newName');
+        if (storedName) {
+            return storedName;
+        } else {
+            localStorage.setItem('newName', name);
+            return name;
+        }
+    });
+    const [newMobile, setNewMobile] = useState(() => {
+        const storedMobile = localStorage.getItem('newMobile');
+        if (storedMobile) {
+            return storedMobile;
+        } else {
+            localStorage.setItem('newMobile', mobile);
+            return mobile;
+        }
+    });
 
     useEffect(() => {
-        if (history.length !== 0) {
+        if (history.length !== 0 && all_product.length !== 0) { //Checking when the details are successfully retrieved
             const updatedHistoryProduct = history.map((productId) =>
                 all_product.find((product) => product.id === productId)
             );
             setHistoryProduct(updatedHistoryProduct);
 
-            const categoryCounts = updatedHistoryProduct.reduce((counts, product) => {
+            const categoryCounts = updatedHistoryProduct.reduce((counts, product) => { //Counting the Category appear the most in of the user
                 if (product && product.category) {
                     counts[product.category] = (counts[product.category] || 0) + 1;
                 }
@@ -36,7 +61,7 @@ const UserPage = () => {
             const mostFrequentCategory = Object.keys(categoryCounts).reduce(
                 (a, b) => (categoryCounts[a] > categoryCounts[b] ? a : b)
             )
-            const recommendedProducts = all_product.filter(
+            const recommendedProducts = all_product.filter( //Finding the favorite category of the user
                 (product) => product.category === mostFrequentCategory
             );
             setRecommendProduct(recommendedProducts.slice(0, 4));
@@ -46,7 +71,7 @@ const UserPage = () => {
     }
         , [history, all_product]);
 
-    const UpdateUserDetails = () => {
+    const UpdateUserDetails = () => { //Updating user details
         const roomInput = document.getElementById("room").value;
         const floorInput = document.getElementById("floor").value;
         const buildingInput = document.getElementById("building").value;
@@ -57,23 +82,34 @@ const UserPage = () => {
         const mobileInput = document.getElementById("mobile").value;
 
         //Setting new input
-        setNewAddress({
+        const updatedAddress = {
             room: roomInput,
             floor: floorInput,
             building: buildingInput,
             area: areaInput,
             district: districtInput,
             city: cityInput
-        });
+        };
+        setNewAddress(updatedAddress);
         setNewName(NameInput);
         setNewMobile(mobileInput);
+
+        // Update localStorage values
+        localStorage.setItem('newAddress', JSON.stringify(updatedAddress));
+        localStorage.setItem('newName', NameInput);
+        localStorage.setItem('newMobile', mobileInput);
 
         updateAddress(roomInput, floorInput, buildingInput, areaInput, districtInput, cityInput);
         updateName(NameInput);
         updateMobile(newMobile);
 
-        //Setting the edit plane to be false
+        // Setting the edit plane to be false
         setEdit(false);
+    }
+
+    // Add a conditional check to render the component only when all_product and history are defined
+    if (!all_product || !history) {
+        return null; // or display a loading indicator
     }
 
     return (

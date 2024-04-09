@@ -19,8 +19,8 @@ const Product = () => {
         }
     }, [all_product, history, product, productId, updateHistory])
 
-    if (!product) {
-        return null; // or display a loading indicator
+    if (!product) { //If the product is not retrieved
+        return null;
     }
 
     return (
