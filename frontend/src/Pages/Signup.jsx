@@ -66,7 +66,7 @@ export const Signup = () => {
                 <button onClick={() => signup()}>Continue</button>
                 <p className="loginsignup-login">Already have an account? <Link style={{ textDecoration: 'none' }} to='/login'><span>Login Here</span></Link></p>
                 <div className="loginsignup-agree">
-                    <input type="checkbox" name='' id='' />
+                    <input type="checkbox" name='' id='' required />
                     <p>By continuing, i agree to the terms of use & privacy.</p>
                 </div>
             </div>
