@@ -50,3 +50,175 @@
     align-items: center;
     justify-content: center;
 }
+
+/*For Responsive design*/
+
+@media(max-width:1440px) {
+    .hero {
+        height: 100vh;
+    }
+
+    .hero-left {
+        padding-left: 10vw;
+    }
+
+    .hero-left h2 {
+        font-size: 26px;
+    }
+
+    .hero-left p {
+        font-size: 100px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 310px;
+        height: 70px;
+        margin-top: 30px;
+        font-size: 22px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 5vh;
+        right: 0px;
+        height: 95vh;
+    }
+}
+
+@media(max-width:1390px) {
+    .hero {
+        height: 90vh;
+    }
+
+    .hero-left {
+        padding-left: 8vw;
+    }
+
+    .hero-left h2 {
+        font-size: 24px;
+    }
+
+    .hero-left p {
+        font-size: 88px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 310px;
+        height: 70px;
+        margin-top: 30px;
+        font-size: 22px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 3vh;
+        right: 0px;
+        height: 87vh;
+    }
+}
+
+@media(max-width:1320px) {
+    .hero {
+        height: 82vh;
+    }
+
+    .hero-left {
+        padding-left: 8vw;
+    }
+
+    .hero-left h2 {
+        font-size: 24px;
+    }
+
+    .hero-left p {
+        font-size: 85px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 290px;
+        height: 65px;
+        margin-top: 30px;
+        font-size: 21px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 2vh;
+        right: 0px;
+        height: 80vh;
+    }
+}
+
+@media(max-width:1240px) {
+    .hero {
+        height: 77vh;
+    }
+
+    .hero-left {
+        padding-left: 8vw;
+    }
+
+    .hero-left h2 {
+        font-size: 23px;
+    }
+
+    .hero-left p {
+        font-size: 80px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 270px;
+        height: 60px;
+        margin-top: 30px;
+        font-size: 20px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 2vh;
+        right: 0px;
+        height: 75vh;
+    }
+}
+
+@media(max-width:1160px) {
+    .hero {
+        height: 74vh;
+    }
+
+    .hero-left {
+        padding-left: 8vw;
+    }
+
+    .hero-left h2 {
+        font-size: 23px;
+    }
+
+    .hero-left p {
+        font-size: 76px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 270px;
+        height: 60px;
+        margin-top: 30px;
+        font-size: 20px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 2vh;
+        right: 0px;
+        height: 72vh;
+    }
+}

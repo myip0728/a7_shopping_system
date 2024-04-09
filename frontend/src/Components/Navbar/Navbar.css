@@ -115,3 +115,153 @@
     background: #d74444;
     color: white;
 }
+
+/*For Responsive Design*/
+@media(max-width:1440px) {
+    .nav-bar {
+        padding: 0px 15px;
+    }
+
+    .nav-logo img {
+        width: 100%;
+    }
+
+    .nav-logo p {
+        font-size: 38px;
+    }
+
+    .nav-menu {
+        gap: 45px;
+        font-size: 17.5px;
+    }
+
+    .nav-login-cart {
+        gap: 25px;
+    }
+
+    .nav-login-cart button {
+        width: 110px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .nav-login-cart img {
+        width: 100%;
+    }
+
+    .nav-cart-count {
+        margin-left: -35px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width:1190px) {
+    .nav-bar {
+        padding: 0px 13px;
+    }
+
+    .nav-menu {
+        gap: 38px;
+        font-size: 16.25px;
+    }
+
+    .nav-logo img {
+        width: 80%;
+    }
+
+    .nav-login-cart button {
+        width: 100px;
+        height: 45px;
+        font-size: 16.25px;
+    }
+
+    .nav-login-cart img {
+        width: 87%;
+    }
+
+    .nav-cart-count {
+        margin-left: -40px;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:1050px) {
+    .nav-bar {
+        padding: 0px 11px;
+    }
+
+    .nav-logo img {
+        width: 70%;
+    }
+
+    .nav-logo p {
+        font-size: 36px;
+    }
+
+    .nav-menu {
+        gap: 32px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart {
+        gap: 13px;
+    }
+
+    .nav-login-cart button {
+        width: 90px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart img {
+        width: 75%;
+    }
+
+    .nav-cart-count {
+        margin-left: -40px;
+        font-size: 11px;
+    }
+}
+
+@media(max-width:940px) {
+    .nav-bar {
+        padding: 0px 9px;
+    }
+
+    .nav-logo img {
+        width: 70%;
+    }
+
+    .nav-logo p {
+        font-size: 33px;
+    }
+
+    .nav-menu {
+        padding-left: 20px;
+        gap: 26px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart {
+        gap: 6px;
+    }
+
+    .nav-login-cart button {
+        margin-left: 9px;
+        width: 80px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart img {
+        width: 70%;
+        gap: 2px;
+    }
+
+    .nav-cart-count {
+        margin-left: -40px;
+        font-size: 11px;
+    }
+}

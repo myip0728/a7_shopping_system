@@ -37,3 +37,74 @@
     /* Center align items */
     gap: 30px;
 }
+
+/*For Responsive Design*/
+@media(max-width:1440px) {
+    .new-arrivals {
+        height: 70vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 50px;
+    }
+}
+
+@media(max-width:1320px) {
+    .new-arrivals {
+        height: 65vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 46px;
+    }
+}
+
+@media(max-width:1230px) {
+    .new-arrivals {
+        height: 61vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 41px;
+    }
+}
+
+@media(max-width:1100px) {
+    .new-arrivals {
+        height: 57vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 37px;
+    }
+}
+
+@media(max-width:1000px) {
+    .new-arrivals {
+        height: 53vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 32px;
+    }
+}
+
+@media(max-width:910px) {
+    .new-arrivals {
+        height: 48vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 29px;
+    }
+}
+
+@media(max-width:820px) {
+    .new-arrivals {
+        height: 45vh;
+    }
+
+    .new-arrivals-heading h1 {
+        font-size: 25px;
+    }
+}

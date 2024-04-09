@@ -56,3 +56,64 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+/*For Responsive Design*/
+@media(max-width:1140px) {
+    .newsLetter h1 {
+        font-size: 48px;
+    }
+
+    .newsLetter p {
+        font-size: 18px;
+    }
+
+    .newsLetter div {
+        width: 650px;
+        height: 60px;
+    }
+
+    .newsLetter div button {
+        width: 180px;
+        height: 60px;
+    }
+}
+
+@media(max-width:1000px) {
+    .newsLetter h1 {
+        font-size: 42px;
+    }
+
+    .newsLetter p {
+        font-size: 16px;
+    }
+
+    .newsLetter div {
+        width: 580px;
+        height: 52px;
+    }
+
+    .newsLetter div button {
+        width: 160px;
+        height: 52px;
+    }
+}
+
+@media(max-width:920px) {
+    .newsLetter h1 {
+        font-size: 39px;
+    }
+
+    .newsLetter p {
+        font-size: 14px;
+    }
+
+    .newsLetter div {
+        width: 510px;
+        height: 48px;
+    }
+
+    .newsLetter div button {
+        width: 140px;
+        height: 48px;
+    }
+}

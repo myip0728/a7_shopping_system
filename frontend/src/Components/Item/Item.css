@@ -49,3 +49,158 @@ a:visited {
     transform: scale(1.05);
     transition: 0.3s;
 }
+
+/*For Responsive Design*/
+@media(max-width:1440px) {
+    .item {
+        width: 260px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 23px;
+    }
+
+    .item-price-new {
+        font-size: 23px;
+    }
+
+    .item-price-old {
+        font-size: 23px;
+    }
+}
+
+@media(max-width:1320px) {
+    .item {
+        width: 240px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 22px;
+    }
+
+    .item-price-new {
+        font-size: 22px;
+    }
+
+    .item-price-old {
+        font-size: 22px;
+    }
+}
+
+@media(max-width:1230px) {
+    .item {
+        width: 220px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 21px;
+    }
+
+    .item-price-new {
+        font-size: 21px;
+    }
+
+    .item-price-old {
+        font-size: 21px;
+    }
+}
+
+@media(max-width:1100px) {
+    .item {
+        width: 200px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 19px;
+    }
+
+    .item-price-new {
+        font-size: 19px;
+    }
+
+    .item-price-old {
+        font-size: 19px;
+    }
+}
+
+@media(max-width:1000px) {
+    .item {
+        width: 180px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 17px;
+    }
+
+    .item-price-new {
+        font-size: 17px;
+    }
+
+    .item-price-old {
+        font-size: 17px;
+    }
+}
+
+@media(max-width:910px) {
+    .item {
+        width: 160px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 15px;
+    }
+
+    .item-price-new {
+        font-size: 15px;
+    }
+
+    .item-price-old {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:820px) {
+    .item {
+        width: 150px;
+    }
+
+    .item-image {
+        width: 100%;
+    }
+
+    .item p {
+        font-size: 14px;
+    }
+
+    .item-price-new {
+        font-size: 14px;
+    }
+
+    .item-price-old {
+        font-size: 14px;
+    }
+}

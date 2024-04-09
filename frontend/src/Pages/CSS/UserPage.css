@@ -136,3 +136,92 @@
     display: flex;
     gap: 10px;
 }
+
+/*For Responsive Design*/
+@media(max-width:1440px) {
+    .user-details-item h1 {
+        font-size: 24px;
+    }
+
+    .user-details-item p {
+        font-size: 23px;
+    }
+
+    .user-details-right h1 {
+        font-size: 24px;
+    }
+
+    .user-details-right label {
+        font-size: 23px;
+    }
+
+    .user-details-right input {
+        font-size: 23px;
+    }
+}
+
+@media(max-width:1280px) {
+    .user-details-item h1 {
+        font-size: 22px;
+    }
+
+    .user-details-item p {
+        font-size: 21px;
+    }
+
+    .user-details-right h1 {
+        font-size: 22px;
+    }
+
+    .user-details-right label {
+        font-size: 22px;
+    }
+
+    .user-details-right input {
+        font-size: 22px;
+    }
+}
+
+@media(max-width:1120px) {
+    .user-details-item h1 {
+        font-size: 20px;
+    }
+
+    .user-details-item p {
+        font-size: 19px;
+    }
+
+    .user-details-right h1 {
+        font-size: 20px;
+    }
+
+    .user-details-right label {
+        font-size: 20px;
+    }
+
+    .user-details-right input {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:1000px) {
+    .user-details-item h1 {
+        font-size: 18px;
+    }
+
+    .user-details-item p {
+        font-size: 17px;
+    }
+
+    .user-details-right h1 {
+        font-size: 18px;
+    }
+
+    .user-details-right label {
+        font-size: 18px;
+    }
+
+    .user-details-right input {
+        font-size: 18px;
+    }
+}
