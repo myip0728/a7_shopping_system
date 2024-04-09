@@ -4,11 +4,11 @@ import upload from '../../assets/upload.svg'
 
 
 const AddProduct = () => {
-  const [image,setImage]=useState(false);
+  const [images,setImage]=useState(false);
 
   const [productDetails,setProductDetails]=useState({
     name:"",
-    image:"",
+    images:"",
     category:"headphone",
     new_price:"",
     old_price:"",
@@ -32,7 +32,7 @@ const AddProduct = () => {
     let product=productDetails;
 
     let formData=new FormData();
-    formData.append('product',image);
+    formData.append('product',images);
     await fetch('http://localhost:4000/upload',{
       method:'POST',
       headers:{
@@ -42,7 +42,7 @@ const AddProduct = () => {
     }).then((resp)=>resp.json()).then((data)=>{responseData=data});
 
     if(responseData.success){
-      product.image=responseData.image_url;
+      product.images=responseData.image_url;
       console.log(product);
       await fetch('http://localhost:4000/addproduct',{
         method:'POST',
@@ -78,11 +78,11 @@ const AddProduct = () => {
       <div className="addproduct-price">
         <div className="addproduct-itemfield">
           <p>Price</p>
-          <input value={productDetails.old_price} onChange={changeHandler} type="number" name="old_price" placeholder='Type here' />
+          <input value={productDetails.old_price} onChange={changeHandler} type="number" name="old_price" min="1" placeholder='Type here' />
         </div>
         <div className="addproduct-itemfield">
           <p>Offer Price</p>
-          <input value={productDetails.new_price} onChange={changeHandler} type="number" name="new_price" placeholder='Type here' />
+          <input value={productDetails.new_price} onChange={changeHandler} type="number" name="new_price" min="0" placeholder='Type here' />
         </div>
       </div>
       <div className="addproduct-itemfield">
@@ -101,9 +101,9 @@ const AddProduct = () => {
       <div className="addproduct-itemfield">
         <p>Upload Image</p>
         <label htmlFor="file-input">
-        <img src={image?URL.createObjectURL(image):upload} className='add-product-thumnail-img' alt="" />
+        <img src={images?URL.createObjectURL(images):upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input  onChange={imageHandler} type="file" name='image' id='file-input' hidden/>
+        <input  onChange={imageHandler} type="file" name='images' id='file-input' hidden/>
       </div>
       <button onClick={()=>{Add_Product()}} className='addproduct-btn'>ADD</button>
     </div>

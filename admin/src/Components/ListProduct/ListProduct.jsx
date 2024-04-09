@@ -10,7 +10,7 @@ const ListProduct = () => {
   const fetchInfo = async () => {
     await fetch('http://localhost:4000/allproducts')
     .then((res) => res.json())
-    .then((data) => setAllProduct(data));
+    .then((data) => {setAllProduct(data)});
   }
 
   useEffect(() => {
@@ -51,7 +51,6 @@ const ListProduct = () => {
                   <p>{product.category}</p>
                   <img onClick={()=>{removeProduct(product.id)}} className='listproduct-remove-icon' src={cross_icon} alt="" />
             </div>
-            
           })}
         </div>
     </div>
