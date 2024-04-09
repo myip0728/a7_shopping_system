@@ -78,15 +78,35 @@ const Payment = () => {
       console.log('CVV:', cvv);
 
       //perform cart item removal
-      const removeItems = async () => {
+      const UpdateCart = async () => {
         for (let i = 0; i < items.length; i++) {
+          //Remove the item from users' shopping cart
           await removeitem(items[i].productId, items[i].option);
-        }
-      };
-      removeItems();
+        };
+      }
 
-      //Remove the corresponding quantity from database
+      const UpdateStorage = async () => {
+        for (let i = 0; i < items.length; i++) {
+          //Remove the corresponding quantity of product from database
+          try {
+            const response = await fetch('http://localhost:4000/paymentsuccess', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/form-data',
+                token: localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ "productId": items[i].productId, "quantity": items[i].quantity }),
+            });
+            console.log(response);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+      }
 
+      UpdateCart();
+      UpdateStorage();
 
       //Return payment success page
       navigate('/paymentsuccess');

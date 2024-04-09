@@ -416,7 +416,10 @@ app.post('/postcomment', async (req, res) => {
 
 app.post('/paymentsuccess', async (req, res) => {
     console.log("payment success");
-    console.log(req.body.productId, req.body.quantity);
+    let productData = await Product.findOne({ id: req.body.productId });
+    let new_stock = productData.no_stock - req.body.quantity;
+    await Product.findOneAndUpdate({ id: req.body.productId }, { no_stock: new_stock });
+    res.send("updated");
 })
 
 app.listen(port, (error) => {

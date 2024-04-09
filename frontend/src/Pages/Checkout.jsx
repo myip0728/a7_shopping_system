@@ -34,8 +34,6 @@ const Checkout = () => {
     }
   };
 
-
-
   const UpdateUserDetails = () => {
     const roomInput = document.getElementById("room").value;
     const floorInput = document.getElementById("floor").value;
