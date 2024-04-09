@@ -44,6 +44,7 @@
     .new-arrivals {
         height: 70vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 50px;
     }
@@ -53,6 +54,7 @@
     .new-arrivals {
         height: 65vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 46px;
     }
@@ -62,6 +64,7 @@
     .new-arrivals {
         height: 61vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 41px;
     }
@@ -71,6 +74,7 @@
     .new-arrivals {
         height: 57vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 37px;
     }
@@ -80,6 +84,7 @@
     .new-arrivals {
         height: 53vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 32px;
     }
@@ -89,18 +94,21 @@
     .new-arrivals {
         height: 48vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 29px;
     }
 }
 
-@media(max-width:840px) {
+@media(max-width:820px) {
     .new-arrivals {
         height: 45vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 25px;
     }
+
     .popular-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -112,9 +120,11 @@
     .new-arrivals {
         height: 90vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 23px;
     }
+
     .new-arrivals-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -126,9 +136,11 @@
     .new-arrivals {
         height: 90vh;
     }
+
     .new-arrivals-heading h1 {
         font-size: 20px;
     }
+
     .new-arrivals-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
