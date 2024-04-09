@@ -220,7 +220,7 @@ export const SearchResult = () => {
                 </div>
             </div>
             {filteredProducts.length !== 0 ?
-                <div>
+                <div className='search-returned-result'>
                     <h1>Here is the search result of {old_searchType === "priceRange" ? `"${old_searchTypeString}: From ${old_minPrice} to ${old_maxPrice}"` : `${old_searchTypeString}: "${old_keywords}"`}</h1>
 
                     <div className="search-result-indexSort">

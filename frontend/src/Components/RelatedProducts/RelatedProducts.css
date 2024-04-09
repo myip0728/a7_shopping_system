@@ -25,3 +25,16 @@
     display: flex;
     gap: 30px;
 }
+
+@media(max-width:840px) {
+    .relatedproducts {
+        height: 1300px;
+    }
+
+    .relatedproducts-item {
+
+        margin-top: 50px;
+        display: table-column;
+        gap: 30px;
+    }
+}

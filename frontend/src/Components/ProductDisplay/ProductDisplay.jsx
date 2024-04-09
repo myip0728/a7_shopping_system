@@ -9,7 +9,7 @@ const ProductDisplay = (props) => {
     const { product } = props
     const [selectedOption, setSelectedOption] = useState(""); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
-    const { addToCart } = useContext(ShopContext);
+    const { addToCart, cartItems } = useContext(ShopContext);
     const [quantity, setQuantity] = useState(0);
     const [stockAvailable, setStockAvailable] = useState(true);
     const [addToCartAvailable, setAddToCartAvailable] = useState(true);
@@ -76,7 +76,7 @@ const ProductDisplay = (props) => {
     };
 
     const handleAddToCart = () => {
-        addToCart(product.id, selectedOption, parseInt(quantity))
+        addToCart(product.id, selectedOption, parseInt(quantity));
         setQuantity(0);
     }
 
@@ -139,7 +139,7 @@ const ProductDisplay = (props) => {
                 </div>
 
                 <div className="productdisplay-right-option">
-                    <h1>Select {product.option_type}</h1>
+                    {product.option.length !== 0 ? <h1>Select {product.option_type}</h1> : null}
                     {addToCartAvailable === true ?
                         <div className="productdisplay-right-options">
                             {product.option.map((opt) => (
