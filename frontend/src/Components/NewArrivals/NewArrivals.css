@@ -10,7 +10,7 @@
 
 .new-arrivals-heading {
     display: flex;
-    text-align: left;
+    justify-content: flex-start;
     padding-left: 200px;
 }
 
@@ -19,16 +19,6 @@
     font-size: 50px;
     font-weight: 600;
     border-bottom: 6px solid #252525;
-}
-
-.view-all {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-bottom: auto;
-    margin-top: auto;
-    padding-right: 250px;
-    font-size: 20px;
 }
 
 .new-arrivals-item {
@@ -99,9 +89,20 @@
     }
 }
 
-@media(max-width:820px) {
+@media(max-width:840px) {
     .new-arrivals {
-        height: 45vh;
+        height: 80vh;
+    }
+
+    .new-arrivals-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .new-arrivals-heading {
+        display: flex;
+        margin-right: auto;
     }
 
     .new-arrivals-heading h1 {

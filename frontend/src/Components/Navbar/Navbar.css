@@ -39,7 +39,7 @@
     list-style: none;
     gap: 45px;
     color: #1E1E1E;
-    font: size 20px;
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -262,6 +262,88 @@
 
     .nav-cart-count {
         margin-left: -40px;
+        font-size: 11px;
+    }
+}
+
+@media(max-width:940px) {
+    .nav-bar {
+        padding: 0px 9px;
+    }
+
+    .nav-logo img {
+        width: 70%;
+    }
+
+    .nav-logo p {
+        font-size: 33px;
+    }
+
+    .nav-menu {
+        padding-left: 20px;
+        gap: 26px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart {
+        gap: 6px;
+    }
+
+    .nav-login-cart button {
+        margin-left: 9px;
+        width: 80px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart img {
+        width: 70%;
+        gap: 2px;
+    }
+
+    .nav-cart-count {
+        margin-left: -27px;
+        font-size: 11px;
+    }
+}
+
+@media(max-width:750px) {
+    .nav-bar {
+        padding: 0px 9px;
+    }
+
+    .nav-logo img {
+        width: 40px;
+    }
+
+    .nav-logo p {
+        font-size: 22px;
+    }
+
+    .nav-menu {
+        padding-left: 20px;
+        gap: 26px;
+        font-size: 11px;
+    }
+
+    .nav-login-cart {
+        gap: 6px;
+    }
+
+    .nav-login-cart button {
+        margin-left: 9px;
+        width: 80px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart img {
+        width: 70%;
+        gap: 2px;
+    }
+
+    .nav-cart-count {
+        margin-left: -27px;
         font-size: 11px;
     }
 }

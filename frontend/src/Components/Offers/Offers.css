@@ -52,3 +52,14 @@
 }
 
 /*For Responsive Design*/
+@media(max-width:700px) {
+    .offers {
+        height: 50vh;
+        padding-left: 40px;
+    }
+
+    .offers-left h1 {
+        font-size: 35px;
+    }
+
+}

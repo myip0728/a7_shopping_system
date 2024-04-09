@@ -1,5 +1,5 @@
 .hero {
-    height: 100vh;
+    height: 93vh;
     display: flex;
     /*background: #eaeaea;*/
     background: linear-gradient(180deg, #fde1ff, #f62c2c22 60%);
@@ -221,4 +221,50 @@
         right: 0px;
         height: 72vh;
     }
+}
+
+@media(max-width:1060px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-left {
+        padding-left: 8vw;
+    }
+
+    .hero-left h2 {
+        font-size: 23px;
+    }
+
+    .hero-left p {
+        font-size: 60px;
+    }
+
+    .hero-latest-btn {
+        gap: 15px;
+        width: 230px;
+        height: 60px;
+        margin-top: 30px;
+        font-size: 20px;
+        gap: 15px;
+    }
+
+    .hero-right img {
+        position: absolute;
+        padding-top: 2vh;
+        right: 0px;
+        width: 400px;
+        height: auto
+    }
+}
+
+@media(max-width:780px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-right {
+        display: none;
+    }
+
 }
