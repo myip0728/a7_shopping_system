@@ -38,7 +38,8 @@ const UserPage = () => {
         const storedMobile = localStorage.getItem('newMobile');
         if (storedMobile) {
             return storedMobile;
-        } else {
+        }
+        else {
             localStorage.setItem('newMobile', mobile);
             return mobile;
         }
@@ -101,7 +102,7 @@ const UserPage = () => {
 
         updateAddress(roomInput, floorInput, buildingInput, areaInput, districtInput, cityInput);
         updateName(NameInput);
-        updateMobile(newMobile);
+        updateMobile(mobileInput);
 
         // Setting the edit plane to be false
         setEdit(false);
@@ -202,7 +203,8 @@ const UserPage = () => {
                                     id="mobile"
                                     className={!edit ? "user-details-right-inactive" : "user-details-right-active"}
                                     value={!edit ? newMobile : null}
-                                    readOnly={!edit}></input>
+                                    readOnly={!edit}
+                                ></input>
                             </form>
                         </div>
                     </div>

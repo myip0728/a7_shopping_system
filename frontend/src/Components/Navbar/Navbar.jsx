@@ -47,7 +47,11 @@ export const Navbar = () => {
                     <Link to='/cart'><img src={cart_icon} alt="" /></Link>
                     <div className="nav-cart-count">{getTotalCartItems()}</div>
                     {localStorage.getItem('token')
-                        ? <button onClick={() => { localStorage.removeItem('token'); window.location.replace('/') }}>Logout</button>
+                        ? <button onClick={() => {
+                            localStorage.removeItem('token'); window.location.replace('/');
+                            localStorage.removeItem('newName'); localStorage.removeItem('newMobile');
+                            localStorage.removeItem('newAddress');
+                        }}>Logout</button>
                         : <Link to='/login'><button>Login</button></Link>}
                 </div>
             </div>

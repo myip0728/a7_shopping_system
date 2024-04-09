@@ -14,7 +14,7 @@ const ShopContextProvider = (props) => {
     const [date, setDate] = useState("");
     const [address, setAddress] = useState({});
     const [name, setName] = useState("");
-    const [mobile, setMobile] = useState(null);
+    const [mobile, setMobile] = useState("");
 
 
     useEffect(() => {

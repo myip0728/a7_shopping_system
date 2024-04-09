@@ -58,7 +58,7 @@ const Checkout = () => {
 
     updateAddress(roomInput, floorInput, buildingInput, areaInput, districtInput, cityInput);
     updateName(NameInput);
-    updateMobile(newMobile);
+    updateMobile(mobileInput);
 
     //Setting the edit plane to be false
     setEdit(false);
@@ -93,7 +93,7 @@ const Checkout = () => {
                   <input type="text" id="city" className={!edit ? "edit-input-inactive" : "edit-input-active"} value={!edit ? newAddress.city : null} readOnly={!edit}></input>
                   <label for="name">Recipient: </label>
                   <input type="text" id="name" className={!edit ? "edit-input-inactive" : "edit-input-active"} value={!edit ? newName : null} readOnly={!edit}></input>
-                  <label for="name">Recipient: </label>
+                  <label for="name">Mobile: </label>
                   <input type="number" id="mobile" className={!edit ? "edit-input-inactive" : "edit-input-active"} value={!edit ? newMobile : null} readOnly={!edit}></input>
                   <label for="name">Email: </label>
                   <input type="text" id="email" className="edit-input-inactive" value={email} readOnly></input>

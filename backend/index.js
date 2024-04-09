@@ -193,8 +193,8 @@ const Users = mongoose.model('Users', {
         default: ""
     },
     mobile: {
-        type: Number,
-        default: -1
+        type: String,
+        default: ""
     },
     date: {
         type: Date,
