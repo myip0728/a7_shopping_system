@@ -4,11 +4,15 @@ import upload from '../../assets/upload.svg'
 
 
 const AddProduct = () => {
-  const [images, setImage] = useState(false);
+  const [image1, setImage1] = useState(false);
+  const [image2, setImage2] = useState(false);
+  const [image3, setImage3] = useState(false);
+  const [image4, setImage4] = useState(false);
+  const [image5, setImage5] = useState(false);
 
   const [productDetails, setProductDetails] = useState({
     name: "",
-    images: "",
+    images: [],
     category: "headphone",
     new_price: "",
     old_price: "",
@@ -18,31 +22,60 @@ const AddProduct = () => {
     description: ""
   })
 
-  const imageHandler = (e) => {
+  const imageHandler = (e, setImage) => {
     setImage(e.target.files[0]);
   }
 
+  const imageHandler1 = (e) => {
+    setImage1(e.target.files[0]);
+  }
+
+  const imageHandler2 = (e) => {
+    setImage2(e.target.files[0]);
+  }
+  const imageHandler3 = (e) => {
+    setImage3(e.target.files[0]);
+  }
+  const imageHandler4 = (e) => {
+    setImage4(e.target.files[0]);
+  }
+  const imageHandler5 = (e) => {
+    setImage5(e.target.files[0]);
+  }
   const changeHandler = (e) => {
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value })
   }
 
   const Add_Product = async () => {
     console.log(productDetails);
-    let responseData;
     let product = productDetails;
+    let upload_failureflag = false;
 
-    let formData = new FormData();
-    formData.append('product', images);
-    await fetch('http://localhost:4000/upload', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-      },
-      body: formData,
-    }).then((resp) => resp.json()).then((data) => { responseData = data });
+    const image_list = [image1, image2, image3, image4, image5];
+    const image_urls = [];
 
-    if (responseData.success) {
-      product.images = responseData.image_url;
+
+    for (let i = 0; i < 5; i++) {
+      if (image_list[i] !== false) {
+        let formData = new FormData();
+        formData.append('product', image_list[i]);
+        await fetch('http://localhost:4000/upload', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+          },
+          body: formData,
+        }).then((resp) => resp.json()).then((data) => {
+          if (data.success !== 1) {
+            upload_failureflag = true;
+          }
+          image_urls.push(data.image_url);
+        });
+      }
+    }
+
+    if (!upload_failureflag) {
+      product.images = image_urls;
       console.log(product);
       await fetch('http://localhost:4000/addproduct', {
         method: 'POST',
@@ -100,26 +133,26 @@ const AddProduct = () => {
       </div>
       <div className="addproduct-itemfield">
         <p>Upload Image</p>
-        <label htmlFor="file-input">
-          <img src={images ? URL.createObjectURL(images) : upload} className='add-product-thumnail-img' alt="" />
+        <label htmlFor="file-input-1">
+          <img src={image1 ? URL.createObjectURL(image1) : upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input onChange={imageHandler} type="file" name='images' id='file-input' hidden />
-        <label htmlFor="file-input">
-          <img src={images ? URL.createObjectURL(images) : upload} className='add-product-thumnail-img' alt="" />
+        <input onChange={(e) => { imageHandler(e, setImage1) }} type="file" name='image1' id='file-input-1' hidden />
+        <label htmlFor="file-input-2">
+          <img src={image2 ? URL.createObjectURL(image2) : upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input onChange={imageHandler} type="file" name='images' id='file-input' hidden />
-        <label htmlFor="file-input">
-          <img src={images ? URL.createObjectURL(images) : upload} className='add-product-thumnail-img' alt="" />
+        <input onChange={(e) => { imageHandler(e, setImage2) }} type="file" name='image2' id='file-input-2' hidden />
+        <label htmlFor="file-input-3">
+          <img src={image3 ? URL.createObjectURL(image3) : upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input onChange={imageHandler} type="file" name='images' id='file-input' hidden />
-        <label htmlFor="file-input">
-          <img src={images ? URL.createObjectURL(images) : upload} className='add-product-thumnail-img' alt="" />
+        <input onChange={(e) => { imageHandler(e, setImage3) }} type="file" name='image3' id='file-input-3' hidden />
+        <label htmlFor="file-input-4">
+          <img src={image4 ? URL.createObjectURL(image4) : upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input onChange={imageHandler} type="file" name='images' id='file-input' hidden />
-        <label htmlFor="file-input">
-          <img src={images ? URL.createObjectURL(images) : upload} className='add-product-thumnail-img' alt="" />
+        <input onChange={(e) => { imageHandler(e, setImage4) }} type="file" name='image4' id='file-input-4' hidden />
+        <label htmlFor="file-input-5">
+          <img src={image5 ? URL.createObjectURL(image5) : upload} className='add-product-thumnail-img' alt="" />
         </label>
-        <input onChange={imageHandler} type="file" name='images' id='file-input' hidden />
+        <input onChange={(e) => { imageHandler(e, setImage5) }} type="file" name='image5' id='file-input-5' hidden />
       </div>
       <button onClick={() => { Add_Product() }} className='addproduct-btn'>ADD</button>
     </div>
