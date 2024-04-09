@@ -405,6 +405,16 @@ app.post('/updatename', fetchUser, async (req, res) => {
     res.send("updated");
 })
 
+app.post('/postcomment', async (req, res) => {
+    console.log("Comment Posted");
+    let productData = await Product.findOne({ id: req.body.productId });
+    let new_comments = productData.comment;
+    new_comments.push({ username: req.body.username, text: req.body.text });
+    await Product.findOneAndUpdate({ id: req.body.productId }, { comment: new_comments });
+    res.send("updated");
+})
+
+
 app.listen(port, (error) => {
     if (!error) {
         console.log("Server Running on Port " + port)

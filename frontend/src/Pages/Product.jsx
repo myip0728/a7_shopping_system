@@ -13,12 +13,15 @@ const Product = () => {
 
     useEffect(() => {
         const isVisited = history.includes(parseInt(productId));
-
         if (!isVisited) {
             updateHistory(parseInt(productId));
             console.log(history);
         }
-    })
+    }, [all_product, history, product, productId, updateHistory])
+
+    if (!product) {
+        return null; // or display a loading indicator
+    }
 
     return (
         <div>
