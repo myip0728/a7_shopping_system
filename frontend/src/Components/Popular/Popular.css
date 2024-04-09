@@ -36,14 +36,15 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     /* Center align items */
-    gap: 4%;
-    padding: 1vw 5vw;
+    gap: 30px;
 }
 
+/*For Responsive Design*/
 @media(max-width:1440px) {
     .popular {
         height: 70vh;
     }
+
     .popular-heading h1 {
         font-size: 50px;
     }
@@ -53,6 +54,7 @@
     .popular {
         height: 65vh;
     }
+
     .popular-heading h1 {
         font-size: 46px;
     }
@@ -62,6 +64,7 @@
     .popular {
         height: 61vh;
     }
+
     .popular-heading h1 {
         font-size: 41px;
     }
@@ -71,6 +74,7 @@
     .popular {
         height: 57vh;
     }
+
     .popular-heading h1 {
         font-size: 37px;
     }
@@ -80,6 +84,7 @@
     .popular {
         height: 53vh;
     }
+
     .popular-heading h1 {
         font-size: 32px;
     }
@@ -89,49 +94,18 @@
     .popular {
         height: 48vh;
     }
+
     .popular-heading h1 {
         font-size: 29px;
     }
 }
 
-@media(max-width:840px) {
+@media(max-width:820px) {
     .popular {
-        height: 100vh;
+        height: 45vh;
     }
+
     .popular-heading h1 {
         font-size: 25px;
-    }
-    .popular-item {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2%;
-    }
-}
-
-@media(max-width:790px) {
-    .popular {
-        height: 90vh;
-    }
-    .popular-heading h1 {
-        font-size: 23px;
-    }
-    .popular-item {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2%;
-    }
-}
-
-@media(max-width:755px) {
-    .popular {
-        height: 90vh;
-    }
-    .popular-heading h1 {
-        font-size: 20px;
-    }
-    .popular-item {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2%;
     }
 }
