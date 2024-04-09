@@ -118,25 +118,32 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    const removeitem = (Id, productOption) => {
-        setCartItems(prevCartItems => {
-            const updatedCartItems = prevCartItems.filter(item => item.productId !== Id || item.option !== productOption);
+    const removeitem = async (Id, productOption) => {
+        setCartItems((prevCartItems) => {
+            const updatedCartItems = prevCartItems.filter(
+                (item) => item.productId !== Id || item.option !== productOption
+            );
             return updatedCartItems;
         });
 
         if (localStorage.getItem('token')) {
-            fetch('http://localhost:4000/removecartitem', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/form-data',
-                    'token': `${localStorage.getItem('token')}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ "productId": Id, "option": productOption }),
-            })
-                .then((response) => console.log(response))
+            try {
+                const response = await fetch('http://localhost:4000/removecartitem', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/form-data',
+                        token: `${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ productId: Id, option: productOption }),
+                });
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
         }
-    }
+    };
+
 
     const getTotalCartItems = () => {
         let totalItem = 0;

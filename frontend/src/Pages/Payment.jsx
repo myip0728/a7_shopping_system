@@ -41,6 +41,8 @@ const Payment = () => {
     return true;
   }
 
+  console.log(items)
+
   const handlePaymentMethodChange = (event) => {
     setPaymentMethod(event.target.value);
   };
@@ -74,10 +76,18 @@ const Payment = () => {
       console.log('Card Number:', cardNumber);
       console.log('Expiration Date:', expirationMM + "/" + expirationYY);
       console.log('CVV:', cvv);
+
       //perform cart item removal
-      items.map((item) => {
-        return (removeitem(item.productId, item.option));
-      })
+      const removeItems = async () => {
+        for (let i = 0; i < items.length; i++) {
+          await removeitem(items[i].productId, items[i].option);
+        }
+      };
+      removeItems();
+
+      //Remove the corresponding quantity from database
+
+
       //Return payment success page
       navigate('/paymentsuccess');
 

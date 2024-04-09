@@ -414,6 +414,10 @@ app.post('/postcomment', async (req, res) => {
     res.send("updated");
 })
 
+app.post('/paymentsuccess', async (req, res) => {
+    console.log("payment success");
+    console.log(req.body.productId, req.body.quantity);
+})
 
 app.listen(port, (error) => {
     if (!error) {
