@@ -65,9 +65,6 @@ const Cart = () => {
         }
     };
 
-    //const goToCheckout = () => {
-    //    <Link to='/checkout'><Checkout checkoutItems={selectedItems}></Checkout></Link>
-    //};
 
     const goToCheckout = () => {
         if (selectedItems.length !== 0) { //Checking the selected Items are valid

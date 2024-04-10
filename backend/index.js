@@ -143,23 +143,23 @@ app.post('/addproduct', async (req, res) => {
     })
 })
 
-//remove product
-app.post('/removeproduct', async (req, res) => {
-    await Product.findOneAndDelete({ id: req.body.id });
-    console.log("Removed a product.");
-    res.json({
-        success: true,
-        name: req.body.name
-    })
-})
-
-//show all products
-app.get('/allproducts', async (req, res) => {
-    let products = await Product.find({});
-    console.log("All products fetched.");
-    res.send(products);
-})
-
+app.post('/updateproduct', async (req, res) => {
+    await Product.findOneAndUpdate({ id: req.body.id }, req.body)
+        .then((result) => {
+            res.json({
+                success: true,
+                name: req.body.name,
+            });
+        })
+        .catch((error) => {
+            // Handle the error if necessary
+            console.error(error);
+            res.json({
+                success: false,
+                error: 'An error occurred during product update.',
+            });
+        });
+});
 
 //User data schema
 const Users = mongoose.model('Users', {
@@ -201,6 +201,37 @@ const Users = mongoose.model('Users', {
         default: Date.now,
     }
 })
+
+//remove product
+app.post('/removeproduct', async (req, res) => {
+    //Find Delete the product
+    await Product.findOneAndDelete({ id: req.body.id });
+    console.log("Removed a product.");
+
+    //Removing the product in some user shopping cart
+    const users = await Users.find({});
+    for (let i = 0; i < users.length; i++) {
+        // Loop through user.cartData
+        users[i].cartData = users[i].cartData.filter(item => item.productId !== req.body.id);
+        // Save the updated user
+        await users[i].save();
+    }
+
+
+    res.json({
+        success: true,
+        name: req.body.name
+    })
+})
+
+//show all products
+app.get('/allproducts', async (req, res) => {
+    let products = await Product.find({});
+    console.log("All products fetched.");
+    res.send(products);
+})
+
+
 
 //signup
 app.post('/signup', async (req, res) => {

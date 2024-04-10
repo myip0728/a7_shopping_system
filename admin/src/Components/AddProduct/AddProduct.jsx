@@ -137,7 +137,7 @@ const AddProduct = () => {
         </div>
         <div className="addproduct-itemfield">
           <p>Product Description</p>
-          <input value={productDetails.description} onChange={changeHandler} type="text" name='description' placeholder='Type here' />
+          <textarea value={productDetails.description} onChange={changeHandler} type="text" name='description' row="5" placeholder='Type here' />
         </div>
         <div className="addproduct-itemfield">
           <p>Number of tags</p>
