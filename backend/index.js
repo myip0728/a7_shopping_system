@@ -196,6 +196,10 @@ const Users = mongoose.model('Users', {
         type: String,
         default: ""
     },
+    last_login: {
+        type: Date,
+        default: Date.now
+    },
     date: {
         type: Date,
         default: Date.now,
@@ -266,6 +270,8 @@ app.post('/login', async (req, res) => {
                     id: user.id
                 }
             }
+            user.last_login = Date.now();
+            await user.save()
             const token = jwt.sign(data, 'secret_Tech');
             res.json({ success: true, token });
         }
@@ -451,6 +457,14 @@ app.post('/paymentsuccess', async (req, res) => {
     let new_stock = productData.no_stock - req.body.quantity;
     await Product.findOneAndUpdate({ id: req.body.productId }, { no_stock: new_stock });
     res.send("updated");
+})
+
+app.post('/updateuser', async (req, res) => {
+    console.log("Update User");
+    await Users.findOneAndReplace({ email: req.body.email }, req.body)
+    res.json({
+        success: true,
+    })
 })
 
 app.listen(port, (error) => {

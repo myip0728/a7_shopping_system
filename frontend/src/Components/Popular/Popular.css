@@ -32,11 +32,14 @@
 }
 
 .popular-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
     justify-content: center;
     /* Center align items */
     gap: 30px;
+}
+
+.item {
+    margin-right: 50px;
 }
 
 /*For Responsive Design*/

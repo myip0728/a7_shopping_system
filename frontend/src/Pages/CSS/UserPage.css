@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-left: 150px;
+    margin: 0px 75px;
     gap: 50px
 }
 
@@ -224,4 +224,13 @@
     .user-details-right input {
         font-size: 18px;
     }
+}
+
+@media(max-width:840px) {
+    .item-display {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+
 }

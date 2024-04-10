@@ -53,6 +53,7 @@ const ListProduct = () => {
     }
     navigate('/productdetails', { state: { product: selectedproduct, edit: true } });
   };
+
   return (
     <div className='list-product'>
       <h1>All  Products</h1>
