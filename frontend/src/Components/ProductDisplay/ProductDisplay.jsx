@@ -9,6 +9,7 @@ const ProductDisplay = (props) => {
     const { product } = props
     const [selectedOption, setSelectedOption] = useState(""); // For indicating whether the option is selected
     const [images, setImages] = useState([...product.images]); //For indicating which is the main image
+    // eslint-disable-next-line
     const { addToCart, cartItems } = useContext(ShopContext);
     const [quantity, setQuantity] = useState(0);
     const [stockAvailable, setStockAvailable] = useState(true);
