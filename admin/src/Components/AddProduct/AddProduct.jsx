@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AddProduct.css'
-import upload from '../../assets/upload.svg'
+import upload from '../../assets/upload2.svg'
 
 
 const AddProduct = () => {
@@ -140,7 +140,7 @@ const AddProduct = () => {
           <input value={productDetails.description} onChange={changeHandler} type="text" name='description' placeholder='Type here' />
         </div>
         <div className="addproduct-itemfield">
-          <p>no of tags</p>
+          <p>Number of tags</p>
           <input value={no_tags} onChange={no_tagshandler} type="number" name='no_tags' placeholder='Type here' min="0" />
           {tag.length !== 0 ?
             <div className='render-variables'>
@@ -151,13 +151,13 @@ const AddProduct = () => {
             </div> : null}
         </div>
         <div className="addproduct-itemfield">
-          <p>no of option</p>
+          <p>Number of option</p>
           <input value={no_opts} onChange={no_optionshandler} type="number" name='no_opts' placeholder='Type here' min="0" />
           {option.length !== 0 ?
             <div className='render-variables'>
-              <p>option type:</p>
+              <p>Option Type:</p>
               <input value={optType} onChange={(e) => { handleOptTypeChange(e) }} id="opt_type" type="text" name='option_type' placeholder='Type here' />
-              <p>option:</p>
+              <p>Option:</p>
               {option.map((opt, index) => {
                 return <input value={opt} onChange={(e) => { handleOptChange(e, index) }} id={`opt-${index}`} type="text" name='option' placeholder='Type here' />
               })}
@@ -180,10 +180,10 @@ const AddProduct = () => {
         <div className="addproduct-itemfield">
           <p>Product Category</p>
           <select value={productDetails.category} onChange={changeHandler} name="category" className='add-product-selector'>
-            <option value="headphone">headphone</option>
-            <option value="laptop">laptop</option>
-            <option value="keyboard">keyboard</option>
-            <option value="mouse">mouse</option>
+            <option value="headphone">Headphone</option>
+            <option value="laptop">Laptop</option>
+            <option value="keyboard">Keyboard</option>
+            <option value="mouse">Mouse</option>
           </select>
         </div>
       </div>

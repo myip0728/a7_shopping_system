@@ -1,34 +1,57 @@
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
     gap: 20px;
     width: 100%;
     max-width: 250px;
-    height: 100vh;
-    background: #FFF;
+    min-height: 100vh;
+    height: auto;
+    background: #FFFFFF;
 }
-.sidebar-item{
+
+.shop-name {
+    font-family: 'iceberg', cursive;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.shop-name img {
+    margin: 0px 10px;
+    width: auto;
+}
+
+.sidebar-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:0px 20px;
+    margin: 0px 20px;
     padding: 5px 10px;
     border-radius: 6px;
     background: #F6F6F6;
     gap: 20px;
     cursor: pointer;
 }
-@media(max-width:800px){
-    .sidebar{
+
+.selected {
+    font-weight: 700;
+    color: #d74444;
+}
+
+@media(max-width:800px) {
+    .sidebar {
         padding: 30px 0px;
         flex-direction: row;
         width: 100%;
         max-width: none;
+        min-height: 7vh;
         height: auto;
         justify-content: center;
+        align-items: center;
     }
-    .sidebar-item{
-        margin:0;
+
+    .sidebar-item {
+        margin: 0;
     }
 }

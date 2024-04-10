@@ -5,9 +5,9 @@
     box-sizing: border-box;
     width: 100%;
     max-width: 1200px;
+    height: 100%;
     padding: 30px 50px;
     margin: 20px 30px;
-    border-radius: 6px;
     background: white;
 }
 
@@ -19,6 +19,12 @@
     width: 100%;
     flex-grow: 1;
     margin-right: 20px;
+}
+
+.addproduct-itemfield p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
 }
 
 .addproduct-itemfield {
@@ -85,15 +91,16 @@
 .addproduct-btn {
     margin-top: 20px;
     margin-left: 50px;
-    width: 160px;
+    width: 180px;
     height: 50px;
     border-radius: 6px;
-    background: #6079ff;
+    background: #D74444;
     border: none;
     cursor: pointer;
+    font-family: Poppins;
     color: white;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 
