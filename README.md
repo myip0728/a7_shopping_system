@@ -6,7 +6,37 @@ There are three main folders, including the frontend, backend, and admin.
 .jsx file is for building the user interfaces.
 
 For frontend folder,
-
+We create different jsx files to design the layout and different page.
+-> The "App.js" is for controlling the whole rendering process of the webpage.
+-> The "Context" folder contains "ShopContext.js" which is for the web to access to the product and user data in the database when the page is rendering.
+-> The "Components" folder contains all different components shown in the one of the section of the page
+    -> The "Asset" is for containing  the images and assets that used to when the web is rendering, or at the time when developing the frontend part of the web.
+    -> The "Breadcrums" is for rendering the Bredcrums section in the product detail page.
+    -> The "CartItems" is for rendering the cart item list in the cart page.
+    -> The "DescriptionBox" is for rendering the description and comment section of the product in the product detail page.
+    -> The "Footer" is for rendering the footer in the bottom of the whole webpage.
+    -> The "Hero" is for rendering the Hero part in the Home page.
+    -> The "Item" is for rendering the item card that listed in the various pages in the web application.
+    -> The "Navbar" is for rendering the navigation bar which placed at the top of the web application.
+    -> The "NewArrivals" is for rendering the New Arrivals part to show 4 new product in the Home page.
+    -> The "NewLetter" is for rendering the News Letter section in the homepage. However the real feature of the subscription of news letter is not implemented.
+    -> The "Offer" is for rendering the Exclusive offer to the best seller of platform.
+    -> The "Popular" is for rendering the products that with the highest rating.
+    -> The "ProductDisplay" is for rendering the product going to be displayed under each category or search result or product page.
+    -> The "RelatedProducts" is for rendering the list of product that the user maybe interested in product details page.
+-> The "Pages" folder contains all different components that are constitute the webpages.
+    -> The "Cart.jsx" is for rendering the whole cart page, and responsible for handling cart operation and process to checkout page.
+    -> The "Checkout.jsx" is for rendering the checkout page when the user selected the item in cart, and responsible for user data updating and process to payment page.
+    -> The "Home.jsx" is for rendering the Home page of the web application, and responsible for redirect user to different pages.
+    -> The "Login.jsx" is for rendering the Login page of the web application, and responsible for user login process.
+    -> The "Payment.jsx" is for rendering the Payment page of the web application, and responsible for user payment process then redirect to Payment Success page.
+    -> The "PaymentSuccess.jsx" is for rendering the payment success message when the user has completed the payment.
+    -> The "Product.jsx" is for rendering all the details of the product.
+    -> The "Search.jsx" is for rendering the search page in the web application, and responsible for product searching process, and redirect to Search result.
+    -> The "SearchResult.jsx" is for rendering the search result after user has some input.
+    -> The "ShopCategory.jsx" is for rendering the Shop Product page that contains all product with same category, and allow using to interact with.
+    -> The "Signup.jsx" is for rendering the Signup page of the web application, and responsible for user registration process.
+    -> The "UserPage.jsx" is for rendering the page that contains all the user details, and responsible for user data updating.
 
 For backend folder,
 We mainly edit the index.js file for the backend function of the shopping system.
@@ -45,3 +75,21 @@ Number of tags, Number of option, Price, Offer Price, Number of stock, as well a
 -> The "src\Components\ProductDetails" folder is for
 -> The "src\Components\ListUser" folder is for
 -> The "src\Components\UserDetails" folder is for
+
+
+To Start the web application
+
+Step 1: open 3 terminal in IDE, 
+    First terminal: cd to frontend folder by command "cd frontend".
+    Second terminal: cd to frontend folder by command "cd backend".
+    Third terminal: cd to frontend folder by command "cd admin".
+
+Step 2:
+    In First terminal(frontend): type in the command "npm start"
+    In Second terminal(backend): type in the command "node index.js"
+    In Third terminal(admin): type in the command "npm run dev"
+    
+Step 3:
+    Access to the client side through http://localhost:3000
+    Access to the server side through http://localhost:4000
+    Access to the admin side through http://localhost:5173
