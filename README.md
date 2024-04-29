@@ -4,6 +4,7 @@ There are three main folders, including the frontend, backend, and admin.
 
 .css file is for defining the visual appearance and the layout of the webpage.
 .jsx file is for building the user interfaces.
+.js file is for creating the database.
 
 For frontend folder,
 We create different jsx files to design the layout and different page.
@@ -40,41 +41,40 @@ We create different jsx files to design the layout and different page.
 
 For backend folder,
 We mainly edit the index.js file for the backend function of the shopping system.
--> Connect the MongoDB database.
--> The "upload" function is for
--> The "upload" function is for
+-> Connect the MongoDB database(DB).
+-> The "upload" function is for uploading the image to the DB.
 -> Declaring the subset/ main component of a product.
--> The "addproduct" function is for
--> The "updateproduct" function is for
+-> The "addproduct" function is for sending all the product information to the DB.
+-> The "updateproduct" function is for the admin to update the product details to DB.
 -> Declaring the subset/ main component of a user.
--> The "removeproduct" function is for
--> The "allproducts" function is for
--> The "signup" function is for
--> The "login" function is for
--> The "alluser" function is for
--> The "removeuser" function is for
--> The "fetchUser" function is for
--> The "addtocart" function is for
--> The "editcart" function is for
--> The "removecartitem" function is for
--> The "updateHistory" function is for
--> The "getuser" function is for
--> The "updateAddress" function is for
--> The "updatemobile" function is for
--> The "updatename" function is for
--> The "postcomment" function is for
--> The "paymentsuccess" function is for
--> The "updateuser" function is for
+-> The "removeproduct" function is for the admin to remove the product in DB.
+-> The "allproducts" function is for the admin to fetch all the products with its details in DB.
+-> The "signup" function is for the users to sign up an account and send the information to DB.
+-> The "login" function is for the users to login to the system and the DB search the required account.
+-> The "alluser" function is for the admin to fetch all the user in DB.
+-> The "removeuser" function is for the admin to remove the user in DB.
+-> The "fetchUser" function is for the admin to fetch all the users with its details in DB.
+-> The "addtocart" function is for the users to add their product to cart and update the required user's profiles in DB.
+-> The "editcart" function is for the users to edit their product, such as the quantity of the product, and update the required user's profiles in DB.
+-> The "removecartitem" function is for the users to remove their product from cart and update the required user's profiles in DB.
+-> The "updateHistory" function is for the users to update what products they are browsing before and store the required products in DB.
+-> The "getuser" function is for getting the user data details.
+-> The "updateAddress" function is for the users to update their address in their profile and update their profile in DB.
+-> The "updatemobile" function is for the users to update their mobile in their profile and update their profile in DB.
+-> The "updatename" function is for the users to update their name in their profile and update their profile in DB.
+-> The "postcomment" function is for the users to write comments of their product after purchasing and update their comment in DB.
+-> The "paymentsuccess" function is for storing the payment details of users to DB.
+-> The "updateuser" function is for the admins to update the users information to DB.
 
 
 For admin folder,
 -> The "src\Pages\Admin" folder is for defining the functions of the admin page.
 -> The "src\Components\AddProduct" folder is for adding product. The administrator is able to add the product by entering the product name, short description, product description, 
 Number of tags, Number of option, Price, Offer Price, Number of stock, as well as product category. He/She can also upload multiple images to add the product.
--> The "src\Components\ListProduct" folder is for
--> The "src\Components\ProductDetails" folder is for
--> The "src\Components\ListUser" folder is for
--> The "src\Components\UserDetails" folder is for
+-> The "src\Components\ListProduct" folder is for viewing all the products of the webpage. 
+-> The "src\Components\ProductDetails" folder is for viewing and editing the product information. 
+-> The "src\Components\ListUser" folder is for fetching all the users registered.
+-> The "src\Components\UserDetails" folder is for listing and editing all the user information.
 
 
 To Start the web application
